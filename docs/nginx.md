@@ -55,8 +55,51 @@ NGINX_LOG %{NOTSPACE:client_ip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:ts:date}
 
 ### 3.新建并配置Grafana监控图表
 
-下载 json http://op26gaeek.bkt.clouddn.com/logdbgrafana.json
+我们准备好了一个nginx监控的dashboard模板，点击右侧下载 json http://op26gaeek.bkt.clouddn.com/logdbgrafana.json
+
+在七牛控制台首页的下方，打开Grafana；
+
+![](http://docs.qiniucdn.com/nginx40.png)
+
+新建一个Grafana应用，并在部署完成后点击访问进入；
+
+![](http://docs.qiniucdn.com/nginx41.png)
+
+进入Grafana之后，首先创建一个数据源；
+
+![](http://docs.qiniucdn.com/nginx42.png)
+
+在创建数据源时，请按照下图进行配置，注意User和Password填写账户的公钥和私钥，同时Index name中的中文替换成日志分析服务的仓库名称，若您所有配置都是根据本教程填写的，那么直接在框中填写 `[my_work-]YYYY.MM.DD`即可。
+
+![](http://docs.qiniucdn.com/nginx44.png)
+
+现在将我们刚刚下载的json文件导入即可；
+
+![](http://docs.qiniucdn.com/nginx45.png)
+
+导入完成后，即可看到我们的实时nginx监控图；
+
+![](http://docs.qiniucdn.com/nginx49.png)
+
 
 ### 4.配置报警信息
 
-### 5.进行日志分析&图表监控
+配置好监控dashboard之后，我们可以配置报警信息，进入notification页面，进行报警配置；
+
+![](http://docs.qiniucdn.com/nginx59.png)
+
+以邮件报警为例，按下图进行配置即可；
+
+![](http://docs.qiniucdn.com/nginx60.png)
+
+配置好接警方式以及接警人后，我们对需要报警提示的图表进行报警设置，以下图为例，设置了响应时间大于1000ms的报警；
+
+![](http://docs.qiniucdn.com/nginx70.png)
+
+最终的报警内容如下图所示：
+
+第一张是右键报警，第二张是slack报警。
+
+![](http://docs.qiniucdn.com/nginx50.png)
+
+![](http://docs.qiniucdn.com/nginx51.png)

@@ -13,6 +13,7 @@
   - [时序数据库](tsdb.md)
   - [报表工作室](report.md)
   - [XSpark](xspark.md)
+  - [Grafana](grafana.md)
 
 - 场景实践
   - [Nginx日志分析](nginx.md)
