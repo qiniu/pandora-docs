@@ -27,6 +27,7 @@
   - [Js](js_sdk.md)
 
 - REST API详解
+  - [API签名](ak.md)
   - [数据推送](push_data_api.md)
   - [工作流](workflow_api.md)
   - [日志分析服务](logdb_api.md)
@@ -35,6 +36,8 @@
 - 下载中心
   - [logkit下载](download_logkit.md) 
   - [SDK下载](download_sdk.md)
+  - [签名生成工具](akutil.md)
+  - [API发送工具](httpie.md)
 
 - 计费
   - [Pandora公有云计费规则](money.md)
