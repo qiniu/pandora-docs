@@ -2,7 +2,7 @@
 
 运维监控是大数据应用最为基础的功能之一，Pandora 提供的工作流引擎和时序数据库组合配合开源的 Telegraf 可以满足运维监控的需求！
 
-#### 监控内容
+## 监控内容
 
 服务器基础性能信息：
 
@@ -18,11 +18,11 @@
 * 进程分布情况；
 * I/O 使用情况；
 
-#### 效果图
+## 效果图
 
 ![最终能看到的效果](http://orzfblcum.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%8812.07.25.png)
 
-### 快速开始
+## 快速开始
 
 下面就 Pandora 提供的组件来搭建一个运维监控应用，搭建这个应用只需要5步。
 
@@ -31,7 +31,7 @@
 !> 注意：mac 版本的 Telegraf 存在不能收集 CPU，diskio 的问题，这是 Telegraf 本身的问题，此处的 mac 版本只做测试流程用途。
 
 
-**第一步：下载&配置**
+### 第一步：下载&配置
 
 ```
 # linux 64位系统：
@@ -50,7 +50,7 @@ tar xvf telegraf.linux.amd64.tar.gz
 ./telegraf config > telegraf.conf
 ```
 
-**第二步：修改配置**
+### 第二步：修改配置
 
 将下列的配置信息填写完成后，复制到`telegraf.conf`文件的最顶端，然后保存`telegraf.conf`文件；
 
@@ -79,7 +79,7 @@ tar xvf telegraf.linux.amd64.tar.gz
 
 
 
-**第三步：启动&发送数据**
+### 第三步：启动&发送数据
 
 用上述生成的配置文件启动 Telegraf，输入以下命令：
 
@@ -87,7 +87,7 @@ tar xvf telegraf.linux.amd64.tar.gz
 ./telegraf -config telegraf.conf
 ```
 
-**第四步： 配置 Grafana 数据源**
+### 第四步： 配置 Grafana 数据源
 
 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
 
@@ -97,7 +97,7 @@ tar xvf telegraf.linux.amd64.tar.gz
 
 ![](_media/monitor3.png)
 
-**第五步： 导入 Grafana dashboard 配置文件**
+### 第五步： 导入 Grafana dashboard 配置文件
 
 下载 Grafana dashboard 配置文件
 

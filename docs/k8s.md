@@ -13,9 +13,8 @@
 
 对于每一个日志，都是一个软连接，连接到实际的日志文件。对于此类日志，使用 logkit 的文件读取模式 (tailx) 即可直接读取，接入方式如下。
 
-### 数据接入
 
-#### 根据您机器的操作系统版本下载logkit
+### 1. 根据您机器的操作系统版本下载logkit
 
 https://github.com/qiniu/logkit/wiki/Download
 
@@ -33,13 +32,13 @@ confs/
 * `bind_host` 是设置绑定的端口，启动后可以根据这个页面配置 logkit。
 * `static_root_path` 是 logkit 页面的静态资源路径，就是填写 public 文件夹所在路径，强烈建议写成 **绝对路径**
 
-#### 运行 logkit
+### 2. 运行 logkit
 
 ```
 nohup ./logkit -f logkit.conf > logkit.log 2>&1 
 ```
 
-#### 访问 logkit 配置页面
+### 3. 访问 logkit 配置页面
 
 假设我们`bind_host`填写的页面内容为："localhost:3000"，那么我们可以在浏览器打开这个页面`http://localhost:3000`
 
@@ -62,7 +61,7 @@ nohup ./logkit -f logkit.conf > logkit.log 2>&1
 
 Docker 的日志统一放置在宿主机的 `/var/lib/docker/containers` 目录上，作为 daemonset 的 logkit 会自动探测该目录中新生成的日志并将之收集。
 
-#### 下载配置文件
+### 4. 下载配置文件
 
 您可以通过如下命令获取部署到 Kubernetes 的配置文件。
 
@@ -185,7 +184,7 @@ spec:
         emptyDir: {}
 ```
 
-#### 修改配置文件
+### 5. 修改配置文件
 
 
 默认情况下，我们的配置文件会使用 `kube-system` 这个 Kubernetes 的 namespace ，所有的部署仅针对该 namespace 生效。如果你想要使用别的 namespace ，只需要修改配置文件的 namespace 部分，将之改为你的 namespace 名称。
@@ -201,7 +200,7 @@ spec:
 
 将 `change_me_to_your_qiniu_access_key` 改为您七牛账号的 AK(access_key) ，将 `change_me_to_your_qiniu_secret_key` 改为您七牛账号的SK(secret_key)。
 
-#### 部署到Kubernetes
+### 6. 部署到Kubernetes
 
 部署到 Kubernetes 非常简单，只需要运行一行命令即可。
 

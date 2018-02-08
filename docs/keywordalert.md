@@ -1,15 +1,14 @@
 运维日志分析 -- 日志搜索和关键字报警
 
-### 场景描述
 
 相信你经常会苦恼于线上大量服务器运维的压力，是不是出现某个机器故障，磁盘损坏亦或是内存超限等等。而这些异常现象发生之前，我们的运维日志中经常会出现一些提示日志。比如 `/var/log/syslog`，`/var/log/message`等等，那么如何快速指定日志文件（如：`/var/log/message`）中出现指定字段（如：`Stopping`,`Error`）后告警呢？
 
 使用 Pandora，我们帮您轻松搞定这个事情。
 
 
-### 数据接入
+## 采集数据
 
-#### 根据您机器的操作系统版本下载 logkit
+### 1. 根据您机器的操作系统版本下载 logkit
 
 https://github.com/qiniu/logkit/wiki/Download
 
@@ -22,7 +21,7 @@ logkit.conf
 
 其中 `logkit.conf` 为主配置文件，用于配置启动监听的端口，启动后可以通过浏览器访问该端口进行 logkit 的配置。默认情况下为: "http://127.0.0.1:3000"。
 
-#### 运行 logkit
+### 2. 运行 logkit
 
 ```
 nohup ./logkit -f logkit.conf > logkit.log 2>&1
@@ -30,7 +29,7 @@ nohup ./logkit -f logkit.conf > logkit.log 2>&1
 
 下面我们将为您介绍如何配置 logkit 以收集您的运维日志。
 
-#### 访问 logkit 配置页面
+### 3. 访问 logkit 配置页面
 
 通过浏览器打开 logkit 的页面，在首页可以看到总体的运行情况。
 
@@ -47,7 +46,7 @@ nohup ./logkit -f logkit.conf > logkit.log 2>&1
 ![此处输入图片的描述][2]
 
 
-#### 配置发送方式
+### 4. 配置发送方式
 
 ![此处输入图片的描述][3]
 
@@ -57,7 +56,7 @@ nohup ./logkit -f logkit.conf > logkit.log 2>&1
 
 更多 logkit 的高级用法，参见 [logkit wiki文档](https://github.com/qiniu/logkit/wiki)
 
-#### 登录 Pandora 界面
+### 5. 登录 Pandora 界面
 
 运行后，在 [https://portal.qiniu.com/logdb](https://portal.qiniu.com/logdb) 上就已创建了日志仓库：`my_work`
 
@@ -76,21 +75,21 @@ nohup ./logkit -f logkit.conf > logkit.log 2>&1
 Q：如何即时生效？
 A：删除仓库 repo_test  → 重新新建仓库 repo_test → 将配置设置为上图一样
 
-#### 检索日志
+## 检索日志
 
 以关键字 Stopping 为例，检索结果如下，此处"raw"字段的分词为”标准分词“
 
 ![此处输入图片的描述][6]
 
-#### Grafana 监控和告警
+## Grafana 监控和告警
 
 具体配置可参考 Pandora 文档站中的 [Grafana 简介](https://qiniu.github.io/pandora-docs-v2/#/grafana) 此处不再赘述，下面只给出示例配置。
 
-#### 创建 Grafana App，如 图6 所示
+### 1. 创建 Grafana App，如 图6 所示
 
 ![图6 Grafana APP 创建](http://op26gaeek.bkt.clouddn.com/newbuildGrafana.png)
 
-#### 配置 Grafana LogDB 数据源，如 图7 所示，点击 logdb 使用指南，可以按照使用指南的指导在 Grafana 配置数据源。
+### 2. 配置 Grafana LogDB 数据源，如 图7 所示，点击 logdb 使用指南，可以按照使用指南的指导在 Grafana 配置数据源。
 
 ![图7 Grafana 数据源配置](http://op26gaeek.bkt.clouddn.com/logdbGrafana.png)
 
@@ -102,30 +101,30 @@ A：删除仓库 repo_test  → 重新新建仓库 repo_test → 将配置设置
 - Version 固定为 `2.x`
 
 
-### 新建 Grafana 的 dashboard 并创建 Graph
+### 3. 新建 Grafana 的 dashboard 并创建 Graph
 
-####  设置 metrics
+### 4. 设置 metrics
 
 ![此处输入图片的描述][7]
 
-#### 设置 Alert 告警
+### 5. 设置 Alert 告警
 设置 condition，可以选择 sum(), count() 等，IS ABOUT 为设置的阈值
 
 ![此处输入图片的描述][8]
 
-#### 设置告警 email 通知
+### 6. 设置告警 email 通知
 首先，设置邮件通知组
 
 ![此处输入图片的描述][9]
 
-#### 点击 sent test，测试是否可以收到邮件
+### 7. 点击 sent test，测试是否可以收到邮件
 ![此处输入图片的描述][10]
 
-#### 设置告警通知
+### 8. 设置告警通知
 
 ![此处输入图片的描述][11]
 
-#### 当超过设置的阈值后就出现告警，并发邮件，包含之前写好的 message，以及此刻 graph 截图。如下图所示：
+### 9. 当超过设置的阈值后就出现告警，并发邮件，包含之前写好的 message，以及此刻 graph 截图。如下图所示：
 
 ![此处输入图片的描述][12]
 

@@ -2,7 +2,7 @@
 
 本文主要介绍通过 Telegraf 和 Pandora TSDB 来收集 phpfpm 的 metric 数据.
 
-#### 监控内容
+## 监控内容
 
 服务器基础性能信息：
 
@@ -17,13 +17,13 @@
 * slow requests
 * max children reached
 
-#### 效果图
+## 效果图
 
 ![最终能看到的效果](http://orzfblcum.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-14%20%E4%B8%8B%E5%8D%886.38.18.png)
 
-#### 快速开始
+## 快速开始
 
-**第一步：确保编译的 php-fpm 已经包含**
+### 第一步：确保编译的 php-fpm 已经包含
 
 找到 php-fpm 的配置文件
 
@@ -37,7 +37,7 @@
 pm.status_path = /status
 ```
 
-**第二步：修改 nginx 配置**
+### 第二步：修改 nginx 配置
 
 新增加一个 nginx `location`
 
@@ -56,7 +56,7 @@ location ~ ^/(status|ping)$ {
 `fastcgi_pass 127.0.0.1:9000;`: 此处为 php-fpm 暴露的端口
 
 
-**第三步：修改 telegraf 配置**
+### 第三步：修改 telegraf 配置
 
 将下列的配置信息复制到`telegraf.conf`文件的最顶端，然后保存`telegraf.conf`文件；
 
@@ -69,7 +69,7 @@ location ~ ^/(status|ping)$ {
 ```
 
 
-**第四步：启动&发送数据**
+### 第四步：启动&发送数据
 
 用上述生成的配置文件启动 Telegraf，输入以下命令：
 
@@ -77,7 +77,7 @@ location ~ ^/(status|ping)$ {
 ./telegraf -config telegraf.conf
 ```
 
-**第五步： 配置 Grafana 数据源**
+### 第五步： 配置 Grafana 数据源
 
 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
 
@@ -87,7 +87,7 @@ location ~ ^/(status|ping)$ {
 
 ![](_media/monitor3.png)
 
-**第五步： 导入 Grafana dashboard 配置文件**
+### 第六步： 导入 Grafana dashboard 配置文件
 
 下载 Grafana dashboard 配置文件
 

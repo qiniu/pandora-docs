@@ -4,7 +4,7 @@
 
 为了解决企业的此类烦恼，七牛云推出了快速构建服务器性能监控报警的解决方案。七牛云开源的日志/信息采集工具 `logkit` 配合七牛云 Pandora 大数据工作流引擎和时序数据库服务，可以方便地对大量服务器的海量性能指标数据进行全方位监控。而整个部署和使用的流程，您完整体验的时间仅需15分钟。
 
-### 监控的内容
+## 监控的内容
 
 `logkit` 目前收集的机器性能指标主要包括十大模块, 上百个指标
 
@@ -21,46 +21,46 @@
 
 各项指标的详细介绍请参考 `logkit` [系统信息采集模块介绍和配置](https://github.com/qiniu/logkit/wiki/Runner%E4%B9%8B%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E9%87%87%E9%9B%86%E9%85%8D%E7%BD%AE)
 
-### 监控效果图
+## 监控效果图
 
 部署完成后，您可以直接载入我们为您构建的监控模板，最终看到的效果图如下。
 
-#### 1. 模板变量
+### 1. 模板变量
 
 模板变量可以起到过滤数据的作用, 比如通过`hostname`这个模板变量可以具体查看某台特定的服务器上的`metric`信息，这样即使有数十上百台机器您也可以轻松管理。同样的，对于某台机器的一些具体的资源，如磁盘、CPU、网卡等等，也有相应的模板变量可以选择。
 ![template](https://pandora-dl.qiniu.com/grafana_templat.png)
 
-#### 2. 全局概览
+### 2. 全局概览
 
 全局信息概览可以看到服务器的一些基本信息，比如系统 load 值、内存使用率、磁盘使用率、网络带宽等。以最直观的方式全局把控整个系统的运行状态，方便在基础资源不够时及时发现、及时处理。
 ![基本信息概览](https://pandora-dl.qiniu.com/grafana_overview.png)
 
-#### 3. CPU Usage 信息
+### 3. CPU Usage 信息
 
 CPU Usage 顾名思义，就是指 CPU 的使用率，通过这幅图可以看到系统中 `user`、`system` 等对于系统 CPU 资源的占用情况。当 CPU 使用率较高且整体运行平稳时，说明您的业务非常健康；若 CPU 的用量曲线波动较大，那就说明服务有可以优化的地方，或者可以添加报警，在业务高峰时及时添加资源。
 ![CPU Usage 概览](https://pandora-dl.qiniu.com/grafana_cpu_usage.png)
 
-#### 4. 系统 load 值与进程
+### 4. 系统 load 值与进程
 
 在这张图中你可以看到不同的统计时间段中系统的负载情况，可以根据负载大小设置告警阈值。同时也可以看到对应的进程数量, 如运行的进程数、在休眠中的进程数，并且可以看到值得关注的一些异常进程，如僵尸进程(zombies)以及被阻塞的进程(blocked)。当存在僵尸进程时说明存在服务异常，需要及时关注并处理。
 ![load与process](https://pandora-dl.qiniu.com/grafana_load_process.png)
 
-#### 5. 内存用量
+### 5. 内存用量
 
 通过这张图可以看到总内存(total)、已使用内存(used)、空闲内存(free)等信息, 同理, 也可以针对这些信息设置告警，及时发现系统性能短板。另一方面要注意，当系统`free`的内存少或接近零，而`cache`部分的内存多时，说明这部分业务对内存缓存较为依赖，虽然服务仍然可以正常运行，但此时极有可能程序没法最大限度利用内存缓存, 导致性能出现了问题。
 ![memory](https://pandora-dl.qiniu.com/grafana_memory.png)
 
-#### 6. kernel 信息
+### 6. kernel 信息
 
 kernel 基本信息中可以看到内核的上下文切换(context switch)、 fork 的进程数(forks)、 已打开(opened)/最大(max)句柄数等信息。通常情况下服务器打开的句柄数都有一个上限，超过了这个限制服务就会出现问题，而服务器的高并发访问极有可能导致打开的句柄数过多，实时监控句柄数有助于查看服务运行状况。
 ![kernel](https://pandora-dl.qiniu.com/grafana_kernel.png)
 
-#### 7. CPU 的状态
+### 7. CPU 的状态
 
 在这张图中可以看到服务器中各个的`CPU`的状态，是对于 `CPU Usage` 的详细拓展。CPU 是一种弹性资源，即使使用量达到 100% 也不会出现直接的服务崩溃，但是极有可能导致服务响应变得极慢，密切关注 CPU 用量，并对于 CPU 设置报警监控也是运维必不可少的一环。
 ![per cpu](https://pandora-dl.qiniu.com/grafana_per_cpu.png)
 
-#### 8. 网络相关
+### 8. 网络相关
 
 * TCP 
 
@@ -83,12 +83,12 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 网卡状态展示了包括网卡收发数据的速度(Network Usage)、收发包的速度(Network Packets)、丢包率(Network drops)以及出错频率(Network errors)等信息。
 ![interface](https://pandora-dl.qiniu.com/grafana_interface.png)
 
-#### 9. 交换分区状态
+### 9. 交换分区状态
 
 这张图展示了交换分区的换入换出状态、交换分区的使用情况等。
 ![swap](https://pandora-dl.qiniu.com/grafana_swap.png)
 
-#### 10. 磁盘用量
+### 10. 磁盘用量
 
 磁盘的重要性毋庸置疑，磁盘爆满可能会对服务产生毁灭性打击，无疑也是需要监控的重点。
 
@@ -102,13 +102,13 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 这张图中可以看到磁盘总空间(total)与已使用空间(used), 实时展现磁盘使用情况，并且可以设置告警机制，当磁盘的剩余空间少于某个阈值时及时告警。
 ![disk](https://pandora-dl.qiniu.com/grafana_disk.png)
 
-### 快速开始
+## 快速开始
 
 下面就 Pandora 提供的组件来搭建一个运维监控应用，搭建这个应用只需要四步。
 
 !> 注意，为了顺利使用 Pandora 的各项服务，第一，需要一个已经实名认证的七牛账户；第二，申请开通 Pandora 的使用权限；
 
-**第一步：下载&启动 logkit**
+### 第一步：下载&启动 logkit
 
 从 [`logkit`下载页面](https://github.com/qiniu/logkit/wiki/Download) 下载对应操作系统的 `logkit` 应用程序。`logkit` 的详细配置可以参考 [logkit Wiki](https://github.com/qiniu/logkit/wiki), 当然如果没有特殊需求，只需要使用默认的配置即可。
 启动 logkit，输入以下命令
@@ -116,7 +116,7 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 ./logkit -f logkit.conf
 ```
 
-**第二步：配置 metric 采集收集器**
+### 第二步：配置 metric 采集收集器
 
 借助 `logkit` 的可视化配置界面，可以很方便的配置需要采集的 metric 信息，在浏览器中输入配置的 `url` 访问 `logkit 管理中心`(默认为 `http://127.0.0.1:3000`)。
 
@@ -135,7 +135,7 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 1. 点击“确认并提交“后，一条收集 metric 信息的 runner 就创建成功了。
 ![收集页面](https://pandora-dl.qiniu.com/runner_page_metric.png)
 
-**第三步： 配置 Grafana 数据源**
+### 第三步： 配置 Grafana 数据源
 
 在七牛应用市场打开 Grafana 应用，然后按照以下步骤配置：
 
@@ -186,7 +186,7 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 
 如果您使用的是LogDB，可以参考[这里](https://qiniu.github.io/pandora-docs/#/quickstart/grafana?id=logdb%e6%95%b0%e6%8d%ae%e6%ba%90)，进行LogDB数据源配置。
 
-**第四步： 导入 Grafana dashboard 配置文件**
+### 第四步： 导入 Grafana dashboard 配置文件
 
 下载 Grafana dashboard 配置文件
 

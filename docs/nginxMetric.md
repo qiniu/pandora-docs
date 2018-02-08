@@ -3,7 +3,7 @@
 nginx 是现代 web 服务栈中最重要的组件之一，本文主要介绍通过 telegraf 和 Pandora TSDB 来收集 nginx 的 metric 数据。
 
 
-#### 监控内容
+## 监控内容
 
 本文假设 nginx 的版本为开源版本的 nginx
 
@@ -17,9 +17,9 @@ nginx 是现代 web 服务栈中最重要的组件之一，本文主要介绍通
 
 商业版本的 nginx 有更多的 metric 数据
 
-### 快速开始
+## 快速开始
 
-1. 确认 nginx stub status module 被打开
+### 1. 确认 nginx stub status module 被打开
 
 
 ```
@@ -38,7 +38,7 @@ make
 sudo make install
 ```
 
-2. 配置 nginx，确保 stub status 能被访问到
+### 2. 配置 nginx，确保 stub status 能被访问到
 
 添加配置
 
@@ -81,7 +81,7 @@ Reading: 0 Writing: 1 Waiting: 1
 看到以上字样说明配置成功。
 
 
-3. 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
+### 3. 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
 
 
 ![配置 Grafana 数据源](_media/monitor1.gif)
@@ -90,7 +90,7 @@ Reading: 0 Writing: 1 Waiting: 1
 
 ![](_media/monitor3.png)
 
-**第五步： 导入 Grafana dashboard 配置文件**
+### 4. 导入 Grafana dashboard 配置文件
 
 下载 Grafana dashboard 配置文件
 

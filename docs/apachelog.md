@@ -3,9 +3,7 @@
 在 `nginx 日志分析搭建案例` 中大家已经明白如何通过 Pandora 快速搭建实时监控与报警平台的整个过程。除了 nginx 之外，apache(httpd) 服务也是现代 web 服务栈中重要的组件之一，本文档作为一个补充，介绍通过 logkit 来收集 apache 的 access.log，同时介绍通过页面方式配置 logkit，数据进入到 Pandora 以后的搜索和分析部分与 nginx 日志分析的案例相同，本文档就不再赘述。
 
 
-### 数据接入
-
-#### 根据您机器的操作系统版本下载 logkit
+### 1. 根据您机器的操作系统版本下载 logkit
 
 https://github.com/qiniu/logkit/wiki/Download
 
@@ -23,13 +21,13 @@ confs/
 * `bind_host` 是设置绑定的端口，启动后可以根据这个页面配置logkit。
 * `static_root_path` 是 logkit 页面的静态资源路径，就是填写 public 文件夹所在路径，强烈建议写成**绝对路径**
 
-#### 运行 logkit
+### 2. 运行 logkit
 
 ```
 nohup ./logkit -f logkit.conf > logkit.log 2>&1 
 ```
 
-#### 访问 logkit 配置页面
+### 3. 访问 logkit 配置页面
 
 假设我们`bind_host`填写的页面内容为："localhost:3000"，那么我们可以在浏览器打开这个页面`http://localhost:3000`
 
