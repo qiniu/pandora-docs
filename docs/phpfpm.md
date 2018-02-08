@@ -81,11 +81,11 @@ location ~ ^/(status|ping)$ {
 
 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
 
-![配置 Grafana 数据源](_media/monitor1.gif)
+![](http://docs.qiniucdn.com/monitor1.gif)
 
 注意事项：
 
-![](_media/monitor3.png)
+![](http://docs.qiniucdn.com/monitor3.png)
 
 ### 第六步： 导入 Grafana dashboard 配置文件
 
