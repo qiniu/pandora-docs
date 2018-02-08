@@ -17,13 +17,13 @@
 
 - 场景实践
   - [Nginx日志分析](nginx.md)
-  - [Kubernetes日志收集与处理](/demo/k8s)
-  - [关键字报警和日志搜索](/demo/keywordalert)
-  - [apache 日志分析](/demo/apachelog)
-  - [telegraf服务器监控](/demo/monitoring)
-  - [nginx metric性能监控](/demo/nginxMetric)
-  - [服务器性能监控](/demo/metrics)
-  - [php-fpm性能监控](/demo/phpfpm)
+  - [Kubernetes日志收集与处理](k8s.md)
+  - [关键字报警和日志搜索](keywordalert.md)
+  - [apache 日志分析](apachelog.md)
+  - [telegraf服务器监控](monitoring.md)
+  - [nginx metric性能监控](nginxMetric.md)
+  - [服务器性能监控](metrics.md)
+  - [php-fpm性能监控](phpfpm.md)
 
 - SDK详解
   - [Go](go_sdk.md)
