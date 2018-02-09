@@ -1,4 +1,5 @@
 - 快速开始
+  - [开通产品](ready.md)
   - [准备数据](prepare_the_data.md)
   - [采集数据](data_collection.md)
   - [日志分析](data_analysis.md)
