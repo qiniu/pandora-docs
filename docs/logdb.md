@@ -186,4 +186,4 @@ A:"/action.log"
 更多高级语法和使用方式请参考Lucene Query。
 
 
-### 使用 sql 搜索（即将开放）
+
