@@ -9,3 +9,5 @@
 
 
 [Get Started](#Pandora)
+
+[旧版文档](https://qiniu.github.io/pandora-docs-old/)
