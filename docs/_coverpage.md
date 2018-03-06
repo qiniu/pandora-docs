@@ -7,7 +7,7 @@
 - 简单 · 高效 · 开放 
 
 
-[旧版文档] (https://qiniu.github.io/pandora-docs-old/)
+[旧版文档](https://qiniu.github.io/pandora-docs-old/)
 
 [Get Started](#Pandora)
 
