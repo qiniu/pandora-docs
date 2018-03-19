@@ -148,11 +148,11 @@ A:"/action.log"
 
 创建仓库时，我们需要指定这个属性，它的意思是指这个仓库内的每一条日志都会被存储和retention一致的天数，超过这个时间的数据会被自动删除，当retention指定为0时，表示永久存储。
 
-## 数据导入
+## 元数据导入
 
-除了通过大数据平台的工作流导出数据到logdb以外，您还可以直接导入本地的JSON文件。在仓库列表页，选择“导入”。
+除了通过仓库管理界面手动创建数据仓库，您还可以导出仓库的元数据文件，这样在下次您创建数据仓库的时候就可以直接导入仓库的元数据配置文件。在仓库列表页，选择“导出”和“导入”可以完成这些操作。
 
-![](http://p5ktjx46s.bkt.clouddn.com/import.png)
+![](https://pandora-kibana.qiniu.com/import.png)
 
 
 ## 搜索
@@ -160,7 +160,7 @@ A:"/action.log"
 
 搜索界面由搜索栏、仓库列表栏、搜索历史栏组成，通过这三大块您可以完成高效又精细的搜索。
 
-![](http://p5ktjx46s.bkt.clouddn.com/search_interface1.png)
+![](https://pandora-kibana.qiniu.com/search_interface1.png)
 
 在搜索栏您可以通过选择日志仓库、输入查询语句、选择时间范围来搜索日志。如果日志仓库里面包含时间字段，您可以通过选择时间字段来过滤搜索结果。
 
@@ -168,31 +168,31 @@ A:"/action.log"
 
 您可以通过搜索界面的仓库列表快速查询具体某个仓库的全部日志,也可以通过搜索历史快速定位已经做过的搜索，避免重复工作。
 
-![](http://p5ktjx46s.bkt.clouddn.com/quick_search.png)
+![](https://pandora-kibana.qiniu.com/quick_search.png)
 
 ### 搜索统计视图
 
 搜索模式分为两种，极速模式和详细模式。当您想要看到日志结果随时间的具体统计图时，可以选择详细模式搜索。统计视图显示随时间统计的日志事件数量。点击直方图的任何部分都可以选择那个时间段以查看选定时间范围内的事件。
 
-![](http://p5ktjx46s.bkt.clouddn.com/histogram4.png)
+![](https://pandora-kibana.qiniu.com/histogram4.png)
 
 ### 字段过滤
 
 日志的field列表显示在搜索结果的左侧，默认情况下搜索结果会显示日志的全部字段，您可以通过字段筛选添加您想查看的字段显示到右侧的日志详细内容中。
 
-![](http://p5ktjx46s.bkt.clouddn.com/choose.png)
+![](https://pandora-kibana.qiniu.com/choose.png)
 
 ### 划词分析
 
 logdb支持搜索结果的划词分析，对搜索结果进行过滤。您可以提取日志结果里的关键字段，选择“加入搜索”，结果会过滤出包含这些关键字段的日志事件，可以同时对多个关键字段划词分析。您可以看到搜索框自动出现了查询语句，大大节省了您的工作量。
 
-![](http://p5ktjx46s.bkt.clouddn.com/line.png)
+![](https://pandora-kibana.qiniu.com/line.png)
 
 ### 联合搜索
 
 logdb支持多个日志仓库联合搜索，如果您拥有多个日志仓库，这几个仓库里的数据彼此关联，您可以同时选择若干个仓库进行联合搜索，获得更全面的分析结果。
 
-![](http://p5ktjx46s.bkt.clouddn.com/union2.png)
+![](https://pandora-kibana.qiniu.com/union2.png)
 
 ### 搜索语法
 
@@ -276,7 +276,7 @@ logdb支持多个日志仓库联合搜索，如果您拥有多个日志仓库，
 
 在报警设置页面，您需要填写以下信息：
 
-![](http://p5ktjx46s.bkt.clouddn.com/warn_setting05.png)
+![](https://pandora-kibana.qiniu.com/warn_setting05.png)
 
 这是一条名称是“响应时间平均数大于1秒报警“的报警配置，它的意思是：每隔1分钟检测最近10分钟内的日志内容，request_time这个字段的平均值如果超过1就触发报警，且15分钟内即使满足报警条件也只触发一次报警。
 
@@ -296,13 +296,13 @@ logdb支持多个日志仓库联合搜索，如果您拥有多个日志仓库，
 
 报警指标选择事件总数，给定一个触发报警的阈值。例如，您可以设置报警条件为10分钟内根据machine分组的日志事件总数超过100：
 
-![](http://p5ktjx46s.bkt.clouddn.com/warn06.png)
+![](https://pandora-kibana.qiniu.com/warn06.png)
 
 2.按字段统计数报警
 
 在报警指标里选择统计方式（总和、平均值、最大值、最小值、中位数、分位数），紧跟其后选择字段名，例如，告警触发条件为：根据machine字段分组的日志数据里，request_time在10分钟之内的平均值大于1:
 
-![](http://p5ktjx46s.bkt.clouddn.com/warn07.png)
+![](https://pandora-kibana.qiniu.com/warn07.png)
 
 **报警限制** 
 
@@ -316,7 +316,7 @@ logdb支持HTTP接口回调报警方式，添加能接受请求的地址，logdb
 
 填好配置项以后，您可以点击测试规则测试一下报警设置是否生效。
 
-![](http://p5ktjx46s.bkt.clouddn.com/warn_test.png)
+![](https://pandora-kibana.qiniu.com/warn_test.png)
 
 !> 注意：每个账号暂时最多只支持创建5条报警。如果需要额外创建报警，请与管理员联系。
 
