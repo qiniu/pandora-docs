@@ -33,6 +33,7 @@
   - [Python](python_sdk.md)
   - [NodeJs](nodejs_sdk.md)
   - [Js](js_sdk.md)
+  - [C](c_sdk.md)
 
 - REST API详解
   - [API签名](ak.md)
