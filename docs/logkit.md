@@ -212,7 +212,7 @@ logkit 提供 transformer 功能来满足一些更精细的字段解析需求。
 
 如果您创建的收集器的解析成功条数或者发送成功条数异常，您可以点击错误日志查看异常原因，然后点击编辑就可以修改收集器配置啦！
 
-更多logkit相关功能如集群管理等请访问 [logkit wiki](https://github.com/qiniu/logkit/wiki)。
+更多logkit详细的功能与配置请访问 [logkit wiki](https://github.com/qiniu/logkit/wiki)。
 
 
 
