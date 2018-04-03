@@ -9,6 +9,7 @@
 - 产品详解
   - [产品架构](architecture.md)
   - [logkit](logkit.md)
+  - [logkit-pro](logkit-pro.md)
   - [工作流](workflow.md)
   - [日志分析服务](logdb.md)
   - [时序数据库](tsdb.md)
