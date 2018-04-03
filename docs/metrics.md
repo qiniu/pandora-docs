@@ -182,9 +182,9 @@ kernel 基本信息中可以看到内核的上下文切换(context switch)、 fo
 > 注意： url 必须填入 http://localhost:8999
 ![填入相应参数，点击添加按钮即可](https://oiw6da4op.qnssl.com/grafana/QQ20170308-4@2x.png)
 
-> 【可选】配置LogDB 数据源
+#### 【可选】配置LogDB 数据源
 
-如果您使用的是LogDB，可以参考[这里](https://qiniu.github.io/pandora-docs/#/quickstart/grafana?id=logdb%e6%95%b0%e6%8d%ae%e6%ba%90)，进行LogDB数据源配置。
+如果您使用的是LogDB，即在logkit端默认导出到日志分析仓库，可以参考[这里](https://qiniu.github.io/pandora-docs/#/grafana?id=logdb%e6%95%b0%e6%8d%ae%e6%ba%90)，进行LogDB数据源配置，同样可以进行服务器性能监控。
 
 ### 第四步： 导入 Grafana dashboard 配置文件
 
