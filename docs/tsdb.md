@@ -1,4 +1,4 @@
-时间序列数据库 Time Series Database (TSDB) 是用于存储、检索时间序列数据的数据库。时间序列数据就是数据格式里包含 timestamp（数据产生时间）字段的数据，您也可以将它理解为历史数据，比如某个时间点的某台机器的 CPU 使用率。
+时间序列数据库 Time Series Database (TSDB) 是用于存储、检索时间序列数据的数据库。时间序列数据就是数据格式里包含 timestamp 字段的数据，您也可以将它理解为历史数据，比如某个时间点的某台机器的 CPU 使用率。
 
 ![](https://pandora-kibana.qiniu.com/timestamp1.png)
 
@@ -14,10 +14,10 @@ tag key         tag value       索引值组合
 ```
 ### 示例数据
 
-以一个示例数据为例来解析一下以上概念，这些数据是伪造的，它们显示了 2017 年 12 月 29 日 上午 9：00 至 2017 年 12 月 29 日上午 10:12 期间 8 位顾客在某购物平台购买食物的记录，数据存在名为 `my_data` 的数据仓库中，其中，`cookie` 和 `apple` 是 field key，`source` 和 `customer` 是 tag key：
+以一个示例数据为例来解析一下以上概念，这些数据是伪造的，它们显示了 2017 年 12 月 29 日 上午 9：00 至 2017 年 12 月 29 日上午 10:12 期间 8 位顾客在某购物平台购买食物的记录，数据存在名为 `food` 的数据仓库中，其中，`cookie` 和 `apple` 是 field key，`source` 和 `customer` 是 tag key：
 
 ```
-repo: my_data
+repo: food 
 series: test_series
 
 ----------
@@ -39,11 +39,11 @@ TSDB 里数据仓库类似于关系型数据库里`数据库`的概念。
 
 ### 序列（series）
 
-记录同一个信息的数据点按照时间的先后排列形成的集合叫做序列。您可以将序列理解为类似于关系型数据库里`表（table）`的概念，在上述数据例子中，序列是 8 条由 `time`、`cookie`、`apple`、`source`、`customer`的值形成的记录的集合。
+记录同一个信息的数据点按照时间的先后排列形成的集合叫做序列。您可以将序列理解为类似于关系型数据库里`表（table）`的概念，在上述数据例子中，序列 test_series 包含 8 个数据点，每个数据点记录的是哪个用户在一个时间点通过网站还是移动端购买苹果和饼干的数量的信息。
 
 ## 数据点（point）
 
-数据点是存储数据的基本单位，每个数据点包含若干个索引（tag key）用于对数据点进行检索，包含若干个数据字段（field key）用于存储实际的数值，一个时间戳用于记录该数据点的生成时间。一个 series 里面有多个 point。在上述例子中，数据点是一条由 `time`、 `cookie`、 `apple`、 `source`、 `customer`的值形成的记录。
+数据点是存储数据的基本单位，每个数据点包含若干个索引（tag key）用于对数据点进行检索，包含若干个数据字段（field key）用于存储实际的数值，一个时间戳。一个 series 里面有多个 point。在上述例子中，数据点是一条由 `time`、 `cookie`、 `apple`、 `source`、 `customer`的值形成的记录。
 
 ### 存储时限（retention）
 
@@ -51,22 +51,17 @@ TSDB 里数据仓库类似于关系型数据库里`数据库`的概念。
 
 ### 时间戳（timestamp）
 
-时间戳是数据点的产生时间，它标识了在任何给定数据序列中的单个点，时间戳使用的是 RFC3339 的日期格式。在上面的数据中用`time`表示时间戳, 在 TSDB 中所有数据都有这一列。
+时间戳标识了在任何给定数据序列中的单个点，在上面的数据中用`time`表示时间戳, 这个时间戳以 RFC3339 格式展示了与特定数据相关联的UTC日期和时间，在 TSDB 中所有数据都有这一列。
 
-### 数据字段（field key）& 数据内容（field value）
+### 数据字段（field key）& 数据值（field value）
 
 我们通常用 field key 存储实际要查询的值，支持对 field key 进行函数运算（如 sum()、mean()、count()等）。
 
-field value 就是 field key 的值，它们可以是`字符串`、`浮点数`、`整数`、`布尔值`。
+field value 就是您的数据，它们可以是`字符串`、`浮点数`、`整数`、`布尔值`。因为 TSDB 是时间序列数据库，所以 field value 总是和时间戳相关联。
 
-例如：
+### 索引字段（tag key）& 索引值（tag value）
 
-field key `cookie` 告诉我们饼干的计数从 4 到 10，field key `apple`告诉我们苹果的计数从 2 到 3。
-
-### 索引字段（tag key）& 索引内容（tag value）
-
-tag key 一般用于对数据点进行检索（匹配、分组），tag value 只能是字符型。 
-
+tag key 一般用于对数据点进行检索（匹配、分组），tag value 以字符串的形式存储。 
 
 我们用一个例子来解释索引的好处：
 
@@ -75,14 +70,14 @@ tag key 一般用于对数据点进行检索（匹配、分组），tag value �
 ```
 SELECT * FROM test_series WHERE cookie = 4
 ```
-这种情况下，时序数据库会扫描所有 cookie 的值，然后返回结果。这样会造成请求时间很长，特别是在数据范围更大时；为了优化查询，提升效率，我们重新设计数据结构，把 cookie 改成 tag key，并将其字段类型改为字符串。
+这种情况下，时序数据库会扫描所有 cookie 的值，然后返回结果。这样会造成请求时间很长，特别是在数据范围更大时；为了优化查询，提升效率，我们重新设计数据结构，把 cookie 改成 tag key。
 
 那么 SQL 语句：
 
 ```
-SELECT * FROM test_series WHERE cookie = ‘4’
+SELECT * FROM test_series WHERE cookie = 4
 ```
-现在只扫描 cookie = ‘4’ 的值，大大提升查询效率。
+现在只扫描 cookie = 4 的值，大大提升查询效率。
 
 除此之外，tag key 可以用来对查询结果分组。了解更多 field key , tag key , timestamp 的查询语法，请阅读 [查询语法](#SQL)。
 
@@ -185,10 +180,10 @@ schema 设计没有固定的标准，但是在使用过程中，遵循以下建�
 
 ### 哪些情况下使用 tag
 
-* 把您经常用到的字段作为 tag，结合查询语法正确查询
+* 把您经常查询的字段作为 tag，结合查询语法正确查询
 * 如果您要对某字段使用 GROUP BY()，将其作为 tag
 * 如果你要对某字段使用函数运算，将其作为 field
-* 如果你需要存储的值不是字符串，则需要将其作为 field，因为 tag value 只能是字符串
+* 如果你需要存储的值不是字符串，最好将其作为 field，因为 tag value 以字符串存储
 
 ### 避免 TSDB 中关键字作为标识符名称
 
@@ -241,7 +236,7 @@ time                    level description      locat
 2015-08-18T00:12:00Z    between 6 and 9 feet   coyote_creek    7.887
 2015-08-18T00:12:00Z    below 3 feet           santa_monica    2.028
 ```
-`waterLevelInfo` 这个序列中的数据以六分钟的时间间隔进行收集。序列有一个tag key（`location`），它具有两个 tag value ： `coyote_creek` 和 `santa_monica`。序列中还有两个 field key：`level description`:字符串类型和 `water_level`:浮点型。所有这些数据都在 NOAA_water_repo 数据库中。
+`waterLevelInfo` 这个序列中的数据以六分钟的时间间隔进行收集。序列有一个tag key（`location`），它具有两个 tag value ： `coyote_creek` 和 `santa_monica`。序列中还有两个 field key：`level description`:字符串类型和 `water_level`:浮点型。所有这些数据都在 NOAA_water_repo 数据仓库中。
 
 >声明：`level description`字段不是原始NOAA数据的一部分
 
