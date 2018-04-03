@@ -104,7 +104,7 @@ SELECT * FROM test_series WHERE cookie = 4
 
 索引值组合的数量是 TSDB 的计费标准之一，您在设计 schema 的时候需要考虑到这一点。
 
-一个序列里并不一定需要 tag key，但是使用 tag key 总是大有裨益。关于如何设计序列的 schema，请阅读 [schema 设计](#schema设计)。
+一个序列里并不一定需要 tag key，但是使用 tag key 总是大有裨益。关于如何设计序列的 schema，请阅读 [schema 设计](#schema-设计)。
 
 ## 操作指南
 
