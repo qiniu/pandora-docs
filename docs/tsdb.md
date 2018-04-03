@@ -1,4 +1,4 @@
-时间序列数据库 Time Series Database (TSDB) 是用于存储、检索时间序列数据的数据库。时间序列数据就是数据格式里包含 timestamp 字段的数据，您也可以将它理解为历史数据，比如某个时间点的某台机器的 CPU 使用率。
+时间序列数据库 Time Series Database (TSDB) 是用于存储、检索时间序列数据的数据库。时间序列数据就是数据格式里包含 timestamp 字段的数据。
 
 ![](https://pandora-kibana.qiniu.com/timestamp1.png)
 
@@ -79,7 +79,7 @@ SELECT * FROM test_series WHERE cookie = 4
 ```
 现在只扫描 cookie = 4 的值，大大提升查询效率。
 
-除此之外，tag key 可以用来对查询结果分组。了解更多 field key , tag key , timestamp 的查询语法，请阅读 [查询语法](#SQL)。
+除此之外，tag key 可以用来对查询结果分组。了解更多 field key , tag key , timestamp 的查询语法，请阅读 [查询语法](#查询语法)。
 
 ### 索引值组合
 
@@ -104,7 +104,7 @@ SELECT * FROM test_series WHERE cookie = 4
 
 索引值组合的数量是 TSDB 的计费标准之一，您在设计 schema 的时候需要考虑到这一点。
 
-一个序列里并不一定需要 tag key，但是使用 tag key 总是大有裨益。关于如何设计序列的 schema，请阅读 [schema 设计](#design)。
+一个序列里并不一定需要 tag key，但是使用 tag key 总是大有裨益。关于如何设计序列的 schema，请阅读 [schema 设计](#schema设计)。
 
 ## 操作指南
 
@@ -174,16 +174,19 @@ TSDB 提供查询结果的可视化功能，点击输入框右下角的图表图
 
 ![](https://pandora-kibana.qiniu.com/graph1.png)
 
-## <span id = "design">schema设计</span>
+## Schema 设计
 
 schema 设计没有固定的标准，但是在使用过程中，遵循以下建议会给您省去一些麻烦。
 
-### 哪些情况下使用 tag
+### 哪些情况下可以使用 tag
 
-* 把您经常查询的字段作为 tag，结合查询语法正确查询
-* 如果您要对某字段使用 GROUP BY()，将其作为 tag
-* 如果你要对某字段使用函数运算，将其作为 field
-* 如果你需要存储的值不是字符串，最好将其作为 field，因为 tag value 以字符串存储
+* 将可以枚举字段作为 tag
+* 如果您要对某字段使用 GROUP BY()，将其作为 tag，参考[购物示例数据](#示例数据)
+
+### 哪些情况下使用 field
+
+* 如果您要对某字段使用函数运算，将其作为 field
+* 如果您需要存储的值不是字符串，最好将其作为 field，因为 tag value 以字符串存储
 
 ### 避免 TSDB 中关键字作为标识符名称
 
@@ -216,7 +219,7 @@ schema 设计没有固定的标准，但是在使用过程中，遵循以下建�
 |SUBSCRIPTIONS|TAG|TO|TIME|VALUES|
 |WHERE|WITH|WRITE|
          
-## <span id = "SQL">查询语法</span>
+## 查询语法
 
 TSDB 提供**类 SQL** 语句来实现查询。
 
