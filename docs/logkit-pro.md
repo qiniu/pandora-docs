@@ -1,29 +1,29 @@
 
 ## 产品简介
 
-### logkit-pro 官方网站
+### logkit Pro 官方网站
 
 [https://logkit-pro.qiniu.com](https://logkit-pro.qiniu.com)
 
-### logkit-pro 概述
+### logkit Pro 概述
 
-logkit-pro 是基于社区版 [logkit](https://github.com/qiniu/logkit/wiki) 开发的一款面向企业的日志收集器管理平台，解决了开源 logkit 孤立运行无法统一管理的难题。致力于让企业在每台机器只安装一个 agent 的基础上，解决机器管理和运维监控的难题。
+logkit Pro 是基于社区版 [logkit](https://github.com/qiniu/logkit/wiki) 开发的一款面向企业的日志收集器管理平台，解决了开源 logkit 孤立运行无法统一管理的难题。致力于让企业在每台机器只安装一个 agent 的基础上，解决机器管理和运维监控的难题。
 
-除了基础的数据读取、解析、转换、发送等功能，logkit-pro 提供了更友好的一键部署、机器监控、收集器统一分发、标签管理、监控告警等功能，弥补了开源 logkit 在规模化后管理上的缺陷。
+除了基础的数据读取、解析、转换、发送等功能，logkit Pro 提供了更友好的一键部署、机器监控、收集器统一分发、标签管理、监控告警等功能，弥补了开源 logkit 在规模化后管理上的缺陷。
 
-让我们一起先来快速体验 logkit-pro 方便的日志解析、转换和发送功能吧。
+让我们一起先来快速体验 logkit Pro 方便的日志解析、转换和发送功能吧。
 
 ## 快速体验
 
-您可以通过上传本地的日志文件或者生成随机数据，体验 logkit-pro 的解析。
+您可以通过上传本地的日志文件或者生成随机数据，体验 logkit Pro 的解析。
 
 ### 步骤1:配置数据源
 
-进入 logkit-pro [快速体验](https://logkit-pro.qiniu.com/#/quickStart)页面。
+进入 logkit Pro [快速体验](https://logkit-pro.qiniu.com/#/quickStart)页面。
 
 ![](https://pandora-kibana.qiniu.com/quick_start.png)
 
-您可以使用`生成随机数据`功能，使用系统随机生成的数据开始您的收集数据体验之旅，其中，您可以修改随机数据来玩转 logkit-pro 收集数据的功能.
+您可以使用`生成随机数据`功能，使用系统随机生成的数据开始您的收集数据体验之旅，其中，您可以修改随机数据来玩转 logkit Pro 收集数据的功能.
 
 ![](https://pandora-kibana.qiniu.com/random_data.png)
 
@@ -31,14 +31,14 @@ logkit-pro 是基于社区版 [logkit](https://github.com/qiniu/logkit/wiki) 开
 
 ![](https://pandora-kibana.qiniu.com/localdatasource.png)
 
-logkit-pro 提供字符换行和正则换行两种方式来规范您的数据源数据的格式，默认情况下是以换行符分隔数据，您可以看到，上传完毕后文件就已经展示出来。
+logkit Pro 提供字符换行和正则换行两种方式来规范您的数据源数据的格式，默认情况下是以换行符分隔数据，您可以看到，上传完毕后文件就已经展示出来。
 
 
 ### 步骤2:解析数据
 
 根据数据源数据格式配置合适的解析方式来结构化数据内容, 方便后续在数据平台进行数据计算和分析。
 
-logkit-pro 提供 json、csv、grok 等格式的数据解析，根据需要在左侧栏选择解析方式。
+logkit Pro 提供 json、csv、grok 等格式的数据解析，根据需要在左侧栏选择解析方式。
 
 以 json 解析方式为例：
 
@@ -48,13 +48,13 @@ logkit-pro 提供 json、csv、grok 等格式的数据解析，根据需要在�
 
 点击`下一步`，选择`按 json 格式解析`，
 
-json 格式的解析无需任何配置，点击`解析样例数据`查看解析结果，验证您的配置的解析方式是否正确。您可以自行尝试其他数据格式的解析，感受 logkit-pro 强大便捷的一键解析功能。
+json 格式的解析无需任何配置，点击`解析样例数据`查看解析结果，验证您的配置的解析方式是否正确。您可以自行尝试其他数据格式的解析，感受 logkit Pro 强大便捷的一键解析功能。
 
 ![](https://pandora-kibana.qiniu.com/jsonparser.png)
 
 ### 步骤3:转换数据
 
-灵活运用 logkit-pro 的转换数据功能，您可以实现更精细的字段解析。如将 ip 字符串扩展为 ip 对应的区域、城市、省份、运营商等信息，或者将指定字段解析为时间等。logkit-pro 支持包括字符串替换、ip 扩展、数组转换等多种数据变换方式，详情参考[转换数据](#转换数据)。
+灵活运用 logkit Pro 的转换数据功能，您可以实现更精细的字段解析。如将 ip 字符串扩展为 ip 对应的区域、城市、省份、运营商等信息，或者将指定字段解析为时间等。logkit Pro 支持包括字符串替换、ip 扩展、数组转换等多种数据变换方式，详情参考[转换数据](#转换数据)。
 
 以字符串替换(rename)为例：
 
@@ -76,11 +76,11 @@ json 格式的解析无需任何配置，点击`解析样例数据`查看解析�
 
 ![](https://pandora-kibana.qiniu.com/complete.png)
 
-您已经体验了 logkit-pro 简单且有趣的数据收集功能，现在让我们全面了解 logkit-pro 。
+您已经体验了 logkit Pro 简单且有趣的数据收集功能，现在让我们全面了解 logkit Pro 。
 
-## logkit-pro 工作流程
+## logkit Pro 工作流程
 
-logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管理。
+logkit Pro 通过如下图的工作流程实现对机器和收集器的统一管理。
 
 ![](http://p6ykx3lg2.bkt.clouddn.com/logkit_pro1.png)
 
@@ -93,9 +93,9 @@ logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管
 
 ## 用户指南
 
-### 安装 logkit-pro 到机器
+### 安装 logkit Pro 到机器
 
-进入 [logkit-pro 官网](https://logkit-pro.qiniu.com)，点击【机器管理】-> 【添加机器】，点击【复制地址】，就可以获取我们提供的一键式安装脚本：
+进入 [logkit Pro 官网](https://logkit-pro.qiniu.com)，点击【机器管理】-> 【添加机器】，点击【复制地址】，就可以获取我们提供的一键式安装脚本：
 
 ![](https://pandora-dl.qiniu.com/yijiananzhang.png)
 
@@ -107,13 +107,13 @@ logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管
 
 ### 配置收集器
 
-安装好 logkit-pro 之后就可以开始收集数据。进入收集器管理页面，点击**添加收集器**开始配置收集器。
+安装好 logkit Pro 之后就可以开始收集数据。进入收集器管理页面，点击**添加收集器**开始配置收集器。
 
 ![](https://pandora-kibana.qiniu.com/add_runner.png)
 
 #### 获取数据
 
-第一步是配置数据源，logkit-pro 支持多种数据来源和读取模式，根据需要在左侧列表选取。
+第一步是配置数据源，logkit Pro 支持多种数据来源和读取模式，根据需要在左侧列表选取。
 
 填写好配置信息之后，选择您添加的 agent，点击【获取数据】，系统将使用您的配置，让 agent 去获取实际的数据，并且展示样例数据以验证您的配置是否正确。
 
@@ -121,7 +121,7 @@ logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管
 
 默认不需要配置高级选项，高级选项保持默认值即可。
 
-**logkit-pro 支持的采集数据源**
+**logkit Pro 支持的采集数据源**
 
 * File: 读取文件中的日志数据，包括 csv 格式的文件，kafka-rest 日志文件， nginx 日志文件等，并支持多种读取模式（fileauto、dir、file、tailx）
 * MySQL: 读取 MySQL 中的数据。
@@ -144,7 +144,7 @@ logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管
 
 配置好解析方式以后，点击【解析样例数据】可以查看解析结果。
 
-**logkit-pro 支持的数据解析方式**
+**logkit Pro 支持的数据解析方式**
 
 * 原始日志逐行发送：直接按行读取返回
 * json 格式解析: 通过json反序列化解析
@@ -157,11 +157,11 @@ logkit-pro 通过如下图的工作流程实现对机器和收集器的统一管
 * 通过解析清空数据：清空读取的数据
 * mysqllog: mysql慢请求日志解析
 
-[点此](https://github.com/qiniu/logkit/wiki/Parsers)了解更多 logkit-pro 数据解析功能。
+[点此](https://github.com/qiniu/logkit/wiki/Parsers)了解更多 logkit Pro 数据解析功能。
 
 #### 转换数据
 
-logkit-pro 提供数据转换功能来满足一些更精细的字段解析需求。
+logkit Pro 提供数据转换功能来满足一些更精细的字段解析需求。
 
 * arrayexpand: 将指定字段的数组展开并转换为键值对。
 * discard: 将指定字段的数据抛弃。
@@ -184,15 +184,15 @@ logkit-pro 提供数据转换功能来满足一些更精细的字段解析需求
 
 ![](https://pandora-kibana.qiniu.com/rename2.png)
 
-[点此](https://github.com/qiniu/logkit/wiki/Transformers)了解更多 logkit-pro 转换数据功能。
+[点此](https://github.com/qiniu/logkit/wiki/Transformers)了解更多 logkit Pro 转换数据功能。
 
 #### 发送数据
 
-logkit-pro 支持多种数据发送平台如七牛大数据平台、MongoDB、InfluxDB 等，根据需要在左侧列表选取。完成这一步就可以在数据平台进行后续数据计算、分析、查看。典型地，发送数据至七牛大数据平台后，数据可以在`workflow`进行数据计算和导出。
+logkit Pro 支持多种数据发送平台如七牛大数据平台、MongoDB、InfluxDB 等，根据需要在左侧列表选取。完成这一步就可以在数据平台进行后续数据计算、分析、查看。典型地，发送数据至七牛大数据平台后，数据可以在`workflow`进行数据计算和导出。
 
 ![](https://pandora-kibana.qiniu.com/SEND2.png)
 
-**logkit-pro 支持的数据发送平台**
+**logkit Pro 支持的数据发送平台**
 
 * Pandora Sender: 发送到七牛大数据处理平台(Pandora)。
 * File Sender: 发送到本地文件。
@@ -251,7 +251,7 @@ logkit-pro 支持多种数据发送平台如七牛大数据平台、MongoDB、In
 
 ![](https://pandora-kibana.qiniu.com/label_add.png)
 
-现在开始玩转您的 logkit-pro 吧！
+现在开始玩转您的 logkit Pro 吧！
 
 
 
