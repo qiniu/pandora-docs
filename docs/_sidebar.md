@@ -51,3 +51,6 @@
 
 - 计费
   - [Pandora公有云计费规则](money.md)
+
+- 发布历史
+  - [Pandora v1.5](releases/logdb-2018-04-18.md)
