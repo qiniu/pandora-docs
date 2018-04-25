@@ -220,7 +220,7 @@ $ kubectl --namespace=kube-system get ds/logkit
 
 默认就能获得机器的 hostname 信息，Kubernetes container 信息， Kubernetes 的 namespace 信息，Kubernetes 的 pod 信息，容器的 IP 地址，机器的操作系统，已经原始的用户日志。
 
-后续配置可以参考[【运维日志分析 -- 日志搜索和关键字报警】](https://qiniu.github.io/pandora-docs-v2/#/keywordalert)
+后续配置可以参考[【运维日志分析 -- 日志搜索和关键字报警】](https://qiniu.github.io/pandora-docs/#/keywordalert)
 
   
   [1]: http://ou3jgt6kj.bkt.clouddn.com/k9slogs.png

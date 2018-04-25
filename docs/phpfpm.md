@@ -81,7 +81,7 @@ location ~ ^/(status|ping)$ {
 
 在七牛应用市场打开 Grafana 应用，然后按照下图所示的配置：
 
-![](http://docs.qiniucdn.com/monitor1.gif)
+![配置 Grafana 数据源](https://pandora-kibana.qiniu.com/monitor1.gif)
 
 注意事项：
 
