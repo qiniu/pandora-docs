@@ -154,7 +154,7 @@ logkit Pro 通过如下图的工作流程实现对机器和收集器的统一管
 
 第二步，根据数据源配置合适解析方式，抽取数据中的字段，转化为结构化数据，充分保障您的配置一定能在实际场景中生效。logkit Pro 支持多种格式的日志解析，按需选取并填写相应的配置信息即可。
 
-##### 按 grok 格式解析
+##### 按grok格式解析
 
 通过配置 grok pattern 解析，将文本格式的字符串转化为结构化的数据。使用 grok 解析日志内容会使得日志分析更加容易。logkit Pro 提供默认匹配日志的 grok 表达式、grok 划词以及自定义 grok 表达式三种方式进行解析。
  
@@ -807,7 +807,7 @@ nginx日志格式名称(nginx_log_format_name):实际 access log 使用的格式
   
   * 禁止记录解析失败数据(disable_record_errdata)：默认为 false，解析失败的数据会默认出现在"pandora_stash"字段，该选项可以禁止记录解析失败的数据。
 
-#### 按grok格式解析(Grok Parser)
+#### 按grok格式解析(GrokParser)
 
 Grok Parser 是一个类似于 Logstash Grok Parser 一样的解析配置方式，其本质是按照正则表达式匹配解析日志。
 
@@ -974,7 +974,7 @@ csv_schema 是按照逗号分隔的字符串，每个部分格式按照字段名
   * string：go 的 string
   * long：go 的 int 64
   * float：go 的 float 64
-  * date：时间类型，具体参见[grok date 字段解析类型](#按grok格式解析)
+  * date：时间类型，具体参见[grok date 字段解析类型](#按grok格式解析(GrokParser))
   * jsonmap 将 json 反序列化为 map[string]interface{}，key 必须为字符串格式，value 为 string, long 或者 float。如果 value 不属于这三种格式，将会强制将 value 转成 string 类型。
   * jsonmap 如果要指定 jsonmap key 的类型并且选定一些 jsonmap 中的 key，那么只要用花括号包含选定的 key 以及其类型即可，里面的语法与外部相同也是以逗号","分隔不同的 key 和类型。目前不支持嵌套的 jsonmap，如果除了选定的 key，其他的 key也要，就以”...“结尾即可。
 
@@ -1007,7 +1007,7 @@ Qiniu Log Parser 为使用了七牛开源的 Golang 日志库[https://github.com
 
 **高级选项**
 
-* 日志前缀(qiniulog_prefix)：使用 [github.com/qiniu/log](github.com/qiniu/log) 这个库时用到的前缀，若没用上，就不填，通常情况下没有配置，默认不填。
+* 日志前缀(qiniulog_prefix)：使用 [https://github.com/qiniu/log](https://github.com/qiniu/log) 这个库时用到的前缀，若没用上，就不填，通常情况下没有配置，默认不填。
 
 * 日志格式顺序(qiniulog_log_headers)：指定字段名称的顺序， 默认为 prefix、date、time、reqid、level、file
   * prefix: qiniulog 的前缀，默认为空，不解析。
@@ -1554,7 +1554,7 @@ Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWeb
 	},
 },
 ```
-### 数据发送（Senders）
+### 数据发送
 
 Senders 的主要作用是将 Parser 和 Transformer 后的数据发送至 Sender 支持的各类服务，目前支持发送到的服务包括： Pandora、ElasticSearch、File、InfluxDB、MongoDB、Kafka、Http Post、消费数据但不发送。
 
@@ -1568,7 +1568,7 @@ Senders 的主要作用是将 Parser 和 Transformer 后的数据发送至 Sende
   
   * 指定日志分析仓库名称(pandora_logdb_name): 默认与 pandora_repo_name 相同，可指定 pandora_enable_logdb 创建的日志检索仓库名称。
   
-  * 日志分析域名(pandora_logdb_host): 默认为 https://logdb.qiniu.com，创建日志检索仓库的服务地址。
+  * 日志分析域名(pandora_logdb_host): 默认为 https://logdb.qiniu.com ，创建日志检索仓库的服务地址。
 
   * 自动创建并导出到时序数据库(pandora_enable_tsdb): 默认为 false，不启用，该字段表示是否在用户 pandora_schema_free 状态下直接将数据导出到 Pandora 时序数据库服务。所以若 pandora_enable_tsdb 生效的前提是 pandora_schema_free 是生效的。该配置会自动创建时序数据库的仓库，同时在 pandora_schema_free 字段增加的情况下更新时序数据库的仓库，更新导出。 注意，2017 年 11 月 27 日前创建的日志检索服务仓库数据默认保存 3 天，之后创建的数据仓库，数据默认保存 30 天，如需长时间保存，请到七牛官方时序数据库管理页面修改数据仓库的数据保存时间；对于已经存在的数据源，并且已经创建过同名导出，自动创建导出将不生效；自动创建导出的repo名称需要统一为小写 tsdb 命名的 repo 名称不支持大写。
   
@@ -1578,7 +1578,7 @@ Senders 的主要作用是将 Parser 和 Transformer 后的数据发送至 Sende
   
   * 指定时序数据库标签(pandora_tsdb_series_tags): 在创建序列时，将该选项中填入的字段设置为索引字段(具体请参考 [Pandora 时序数据库服务](https://qiniu.github.io/pandora-docs/#/tsdb)), 当有多个字段时，用空格隔开。
   
-  * 时序数据库域名(pandora_tsdb_host): 默认为 https://tsdb.qiniu.com，创建时序数据库仓库的服务地址。
+  * 时序数据库域名(pandora_tsdb_host): 默认为 https://tsdb.qiniu.com ，创建时序数据库仓库的服务地址。
   
   * 指定时序数据库时间戳(pandora_tsdb_timestamp): 序列的时间戳字段，当字段为空时，时序数据库将自动将导出时间作为时间戳。
   
