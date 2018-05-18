@@ -807,7 +807,7 @@ nginx日志格式名称(nginx_log_format_name):实际 access log 使用的格式
   
   * 禁止记录解析失败数据(disable_record_errdata)：默认为 false，解析失败的数据会默认出现在"pandora_stash"字段，该选项可以禁止记录解析失败的数据。
 
-#### 按grok格式解析(GrokParser)
+#### grok格式解析
 
 Grok Parser 是一个类似于 Logstash Grok Parser 一样的解析配置方式，其本质是按照正则表达式匹配解析日志。
 
@@ -974,7 +974,7 @@ csv_schema 是按照逗号分隔的字符串，每个部分格式按照字段名
   * string：go 的 string
   * long：go 的 int 64
   * float：go 的 float 64
-  * date：时间类型，具体参见[grok date 字段解析类型](#按grok格式解析(GrokParser))
+  * date：时间类型，具体参见[grok date 字段解析类型](#grok格式解析)
   * jsonmap 将 json 反序列化为 map[string]interface{}，key 必须为字符串格式，value 为 string, long 或者 float。如果 value 不属于这三种格式，将会强制将 value 转成 string 类型。
   * jsonmap 如果要指定 jsonmap key 的类型并且选定一些 jsonmap 中的 key，那么只要用花括号包含选定的 key 以及其类型即可，里面的语法与外部相同也是以逗号","分隔不同的 key 和类型。目前不支持嵌套的 jsonmap，如果除了选定的 key，其他的 key也要，就以”...“结尾即可。
 
