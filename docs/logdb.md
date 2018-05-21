@@ -153,6 +153,65 @@ A:"爱杭州"
 
 创建仓库时，我们需要指定这个属性，它的意思是指这个仓库内的每一条日志都会被存储和retention一致的天数，超过这个时间的数据会被自动删除，当retention指定为0时，表示永久存储。
 
+## 数据接收
+
+### 文件上传
+
+logdb 支持直接上传本地日志文件到实时仓库中，并对上传数据进行解析，结构化日志内容，方便您在实时仓库中对数据进行搜索。无需借助第三方工具打入数据，直接对已有存量数据快速接入。
+
+![支持上传文件解析](https://pandora-kibana.qiniu.com/upload_with_analysis.png)
+
+1.点击搜索栏下面的`上传文件`按钮，开始上传本地文件(不超过 2MB)到目的仓库中并配置解析规则,可以选择已有仓库或者创建新的仓库。文件上传完成后，点击`下一步`。
+
+![选择数据仓库上传](https://pandora-kibana.qiniu.com/upload_interface.png)
+
+2.在日志列表点选一条当作示例数据进行解析，选择对日志读取解析模式：`单行`、`多行`。
+
+![选择数据单行多行模式](https://pandora-kibana.qiniu.com/example_data1.png)
+
+3.对示例数据选择解析方法，logdb 提供按`正则表达式`、`固定分隔符`两种字段提取方式提取日志里面的字段，方便后续分析。点击`下一步`进行具体字段提取设置。
+
+![](https://pandora-kibana.qiniu.com/choose_analysis_method.png)
+
+**正则表达式提取字段**
+
+通过鼠标在示例数据上点选想要抽取的字段，并对字段设置名称和类型。字段提取好之后，系统会自动生成正则表达式，尝试对全部原始文件进行解析。您可以通过匹配数量查看设置的提取规则是否匹配全部日志，根据自身需求对提取规则做调整。
+
+![正则表达式数据抽取](https://pandora-kibana.qiniu.com/zhengze.png)
+
+**固定分隔符提取字段**
+
+我们的系统会根据您选择的分隔符（如逗号，空格，制表位）解析数据，生成默认的字段名和类型，并将字段与字段名一一绑定显示。默认字段名称与类型可以编辑。通过固定分隔符方式提取字段方便快捷，但只适用于 csv 等格式比较简单的文件。
+
+![固定分隔符数据抽取](https://pandora-kibana.qiniu.com/fengefu.png)
+
+4.保存字段提取规则
+
+为仓库保存字段解析规则，可设置为默认解析规则，在仓库有多个解析规则的情况下，默认解析规则优先级最高。您还可以根据自身需求选择是否保存原始日志。建议保存原始日志，这样即便在解析规则不匹配全部数据的时候，仍然可以将数据入库。
+
+![保存规则](https://pandora-kibana.qiniu.com/save_rule.png)
+
+解析规则列表可以查看所有解析规则及其详情。
+
+![](https://pandora-kibana.qiniu.com/detailedRULE.png)
+
+### 文件批量上传
+
+对于已经配置好数据解析规则的仓库，可以一次上传多个日志文件到仓库中。在实时搜索界面的仓库列表，选择`上传文件`，拖拽本地文件到上传框中即可快速上传多个文件并应用已经设置好的解析规则。
+
+![快速上传](https://pandora-kibana.qiniu.com/fast_upload.png)
+![](https://pandora-kibana.qiniu.com/fast_upload1.png)
+
+### 开放 API
+
+通过 API 直接将数据文本置于请求体中，可以在服务端进行数据解析、字段提取和数据入库。
+
+```
+POST /v2/stream/{REPO_NAME}/data
+Content-Type: text/plain
+
+[2017-12-21 05:36:26,917][WARN ][cluster.routing.allocation.decider] [Master Mold] high disk watermark [90%] exceeded on [gXIMYOjpQ0SmV-vvUpnaKw][Master Mold][/Users/jason/Development/elasticsearch-2.3.3/data/elasticsearch/nodes/0] free: 1.8gb[1.6%], shards will be relocated away from this node
+```
 
 ## 实时日志输出
 
@@ -180,9 +239,15 @@ A:"爱杭州"
 
 ### 快速搜索
 
+#### 搜索历史
+
 您可以通过搜索界面的仓库列表快速查询具体某个仓库的全部日志,也可以通过搜索历史快速定位已经做过的搜索，避免重复工作。
 
 ![](https://pandora-kibana.qiniu.com/quick_search.png)
+
+#### 搜索结果分享
+
+您可以将已有搜索页面链接分享给其他人，对方可以基于您的页面直接查看搜索结果或者再搜索，不需要重复输入相关查询条件，方便团队内部进行沟通，提高效率。
 
 ### 搜索统计视图
 
@@ -300,19 +365,32 @@ logdb支持多个日志仓库联合搜索，如果您拥有多个日志仓库，
 
 更多高级语法和使用方式请参考Lucene Query。
 
-## 仓库配置导入导出
+## 仓库管理
 
-在仓库管理界面，您可以导入本地JSON文件，导入成功以后系统会自动打开创建仓库页面，并且字段全部自动添加。
+logdb 支持日志仓库和实时仓库的管理。
+
+![](https://pandora-kibana.qiniu.com/repo_manage.png)
+
+### 实时仓库解析规则绑定
+
+创建实时仓库支持对实时仓库设置解析规则，每个实时仓库最多绑定 5 个规则，规则的解析顺序是从前到后。您可以自由切换解析规则优先级，仓库的解析结果为所有规则解析出来字段的并集。对于绑定了解析规则的实时仓库，可以直接批量上传文件到实时仓库查看。参考[文件批量上传](文件批量上传)
+
+![](https://pandora-kibana.qiniu.com/createRepo.png)
+
+### 仓库配置导入导出
+
+支持导入 json 文件创建仓库。导入成功以后系统会自动打开创建仓库页面，并且字段全部自动添加。
 
 ![](https://pandora-kibana.qiniu.com/json.png)
 
 ![](https://pandora-kibana.qiniu.com/json_import.png)
 
-同样，您也可以导出仓库的配置到本地保存，下次如果您想创建同类型Schema的仓库，使用导入功能即可。
+同样，您也可以导出仓库的配置到本地保存，下次如果您想创建同类型 Schema 的仓库，使用导入功能即可。
 
 通过`导入`和`导出`功能相结合，您可以精准快速地创建数据仓库，省去重复工作。
 
 ![](https://pandora-kibana.qiniu.com/import.png)
+
 
 ## 报警
 
