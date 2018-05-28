@@ -19,116 +19,107 @@
 
 ### 创建应用
 
-1. 首先登陆七牛portal的应用平台 找到Grafana
-![grafana](https://oiw6da4op.qnssl.com/grafana/img1.png)
+1. 登录 [c.qiniu.com](c.qiniu.com)，可以在左侧边栏中选择 【应用市场】。
 
-2. 点击立即部署按钮开始创建Grafana应用
-![grafana](https://oiw6da4op.qnssl.com/grafana/img2.png)
+![grafana](https://pandora-kibana.qiniu.com/image2018-5-10_13-32-7.png)
 
-输入您的app名和应用别名，选择部署区域(注意！目前TSDB的数据在`华东`，所以Grafana只可部署在华东区域)，点击确定创建
+2. 选中应用市场后，就可以看到 Grafana 应用的图标 ，点击【部署应用】即可部署一个新的 Grafana 应用。
 
-应用名称：账号内唯一应用名称，且只能满足以下条件：（1. 只能包含字母、数字和减号，首尾字符只能为字母或数字。 2. 字符长度不能超过 30）
-应用别名：供显示使用的标题名。
+![grafana](https://pandora-kibana.qiniu.com/image2018-5-10_13-36-13.png)
 
-3. 等待app启动后，输入密码（密码长度必须>=6），点击 确认配置
+3. 部署 Grafana 我们需要填写几个信息。
 
-> 注意，因为Grafana App具有公网域名，所以建议设置一个高强度的密码（此密码在进入Grafana App后可以修改）。
+应用名称： grafana 实例的名称
 
-![Grafana](https://oiw6da4op.qnssl.com/grafana/img3.png)
+管理员账号/密码：该账号密码就是 Grafana 的管理员账号密码
 
-4. 访问Grafana进入Grafana页面
+AK/SK：用户的 AK/SK
 
-> 注意，该Grafana App是暴露在公网上的，可收藏地址用于后续访问。
+填写完成之后即可点击【创建应用】
 
-![Grafana](https://oiw6da4op.qnssl.com/grafana/img5.png)
 
-### TSDB数据源
+![Grafana](https://pandora-kibana.qiniu.com/image2018-5-10_13-48-12.png)
 
-在Grafana中使用Pandora TSDB之前，我们需要先添加数据源。
+4. 点击创建应用后，即跳转到我的应用页面，并且显示应用的创建状态。
 
-1. 登录grafana，点击菜单中的 Data Sources
-![点击菜单中的 Data Sources](https://oiw6da4op.qnssl.com/grafana/QQ20170308-1@2x.png)
+![Grafana](https://pandora-kibana.qiniu.com/image2018-5-10_14-6-10.png)
 
-2. 点击 Add data source 按钮
-![点击 Add data source 按钮](https://oiw6da4op.qnssl.com/grafana/QQ20170308-0@2x.png)
+进入 【运行中】后代表 grafana 已经部署成功，我们可以点击这个应用名 test 来看到进一步的详细信息，其中就包括 grafana 的访问方式，管理页面的访问方式。
 
-3. 在Name填入数据源的名字, Type 选择 Pandora TSDB
-![在Name填入数据源的名字, Type 选择 Pandora TSDB](https://oiw6da4op.qnssl.com/grafana/QQ20170308-2@2x.png)
+![](https://pandora-kibana.qiniu.com/image2018-5-10_14-28-13.png)
 
-4. 填入相应参数，点击添加按钮即可
-> 注意： url 必须填入 http://localhost:8999
-![填入相应参数，点击添加按钮即可](https://oiw6da4op.qnssl.com/grafana/QQ20170308-4@2x.png)
+其中 grafana 地址就是直接访问 grafana 的域名，另外我们还提供了一个管理页面提供了更多方便的功能。
 
-其中，repo名可以在七牛portal的时序数据库页面中找到
+首先可以登录管理页面，管理页面目前仅仅支持用户名密码登录方式，用户名密码同 Grafana 用户名密码相同。
 
-![repo名可以在七牛portal的时序数据库页面中找到](https://oiw6da4op.qnssl.com/grafana/DD847726796988BEDEDEDB26809B2D1C.jpg)
+![](https://pandora-kibana.qiniu.com/image2018-5-10_14-44-35.png)
 
-5. 添加完数据源后，在菜单中选择 dashbords -> new 就可以新建自己的dashbords来展示数据了
+登录之后既可以看到这个用户所有在 pandora 处创建的 logdb repo，tsdb repo 信息，用户可以直接点击【一键添加】按钮添加这个 repo 的 data source。
+
+![](https://pandora-kibana.qiniu.com/image2018-5-10_15-2-34.png)
+
+然后我们登录 Grafana 就可以看到这个 Data Source 了。
+
+![](https://pandora-kibana.qiniu.com/image2018-5-10_15-3-30.png)
+
+### TSDB数据源监控
+
+在Grafana中使用Pandora TSDB之前，我们需要先按照上述步骤添加数据源。
+
+1. 添加完数据源后，在菜单中选择 dashbords -> new 就可以新建自己的dashbords来展示数据了
 
 ![新建dashboard](https://oiw6da4op.qnssl.com/grafana/QQ20170308-5@2x.png)
 
-6. 选择graph可以创建新的图表
+2. 选择graph可以创建新的图表
 
 ![新建图表](https://oiw6da4op.qnssl.com/grafana/QQ20170308-6@2x.png)
 
-7. 点击图标标题，然后点击弹出菜单的Edit即可编辑图标
+3. 点击图标标题，然后点击弹出菜单的Edit即可编辑图标
 
 ![编辑图标](https://oiw6da4op.qnssl.com/grafana/QQ20170308-7@2x.png)
 
-8. 编辑界面中的 datasource 选择刚才添加的datasource，即可实时预览和智能提示
+4. 编辑界面中的 datasource 选择刚才添加的datasource，即可实时预览和智能提示
 
 ![编辑界面中的 datasource 选择刚才添加的datasource，即可实时预览和智能提示](https://oiw6da4op.qnssl.com/grafana/QQ20170308-8@2x.png)
 
-9. 编辑完成后点击 保存 按钮保存新添加的模板
+5. 编辑完成后点击 保存 按钮保存新添加的模板
 ![保存模板](https://oiw6da4op.qnssl.com/grafana/QQ20170308-9@2x.png)
 
-### LogDB数据源
+### LogDB数据源监控
 
-在grafana中使用pandora logdb之前，我们需要先添加数据源。
+在grafana中使用pandora logdb之前，我们需要先按照上述步骤添加数据源。
 
-1、首先，登陆grafana，点击菜单中的 Data Sources
-
-![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-1@2x.png)
-
-2、点击 Add data source 按钮
-
-![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-0@2x.png)
-
-3、填入相应参数，点击添加按钮即可
-
-
-![img](http://oji8s4dhx.bkt.clouddn.com/QQ20170321-0.png)
-
-	注意： 
-	1. url 必须填入 http://localhost:8999/logdb
-	2. index 名字填写时候必须选择Daily，同时[repoName-]YYYY.MM.DD，用实际的数据仓库名字替换repoName。注意中括号内不能包含任何诸如空格、制表位等空白和特殊字符。
-	3. Time field name 是指定数据仓库中的时间字段，默认值@timestamp，必须替换为实际的字段名字，要注意字段不能带@符号，否则将无法生效。
-	4. ES 版本固定选择2.x 
-
-其中，repoName 名可以在七牛portal的logdb页面中找到
-
-![img](http://oji8s4dhx.bkt.clouddn.com/QQ20170321-1.png)
-
-4、完数据源后，在菜单中选择 dashbords -> new 就可以新建自己的dashbords来展示数据了
+1. 完数据源后，在菜单中选择 dashbords -> new 就可以新建自己的dashbords来展示数据了
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-5@2x.png)
 
-5、 选择graph可以创建新的图表
+2. 选择graph可以创建新的图表
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-6@2x.png)
 
-6、点击图标标题，然后点击弹出菜单的Edit即可编辑图标
+3. 点击图标标题，然后点击弹出菜单的Edit即可编辑图标
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-7@2x.png)
 
-7、编辑界面中的 datasource 选择刚才添加的datasource，即可实时预览和智能提示
+4. 编辑界面中的 datasource 选择刚才添加的datasource，即可实时预览和智能提示
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-8@2x.png)
 
-8、编辑完成后点击 保存 按钮保存新添加的模板
+5. 编辑完成后点击 保存 按钮保存新添加的模板
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-9@2x.png)
 
+### 监控内容迁移
+
+在原先 Grafana 应用的 dashboard 左上角，点击`Export`，将 监控内容对应的 json 文件下载到本地。
+
+![](https://pandora-kibana.qiniu.com/grafana.png)
+
+进入新创建的 Grafana 应用，点击 `Dashboards`->`import`。导入之前下载到本地的 json 文件即可以完成 Grafana 监控内容的迁移。
+
+![](https://pandora-kibana.qiniu.com/Grafana1.png)
+
+![](https://pandora-kibana.qiniu.com/Grafana2.png)
 
 ### 折线图
 
