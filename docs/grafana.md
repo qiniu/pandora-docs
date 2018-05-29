@@ -95,6 +95,16 @@ AK/SK：用户的 AK/SK , 提供一键读取功能
 
 ![img](https://oiw6da4op.qnssl.com/grafana/QQ20170308-9@2x.png)
 
+6 . 迁移后数据源对比
+
+待迁移数据源在旧版页面展示所有原有的数据源列表。
+
+![img](https://pandora-kibana.qiniu.com/%E6%97%A7%E7%89%88.png)
+
+迁移成功后新版页面展示迁移后的数据源配置信息。
+
+![img](https://pandora-kibana.qiniu.com/%E6%96%B0%E7%89%881.png)
+
 ### TSDB数据源监控
 
 在Grafana中使用Pandora TSDB之前，我们需要先按照上述步骤添加数据源。
