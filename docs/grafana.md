@@ -58,10 +58,12 @@ AK/SK：用户的 AK/SK , 提供一键读取功能
 ![](https://pandora-kibana.qiniu.com/image2018-5-10_14-44-35.png)
 
 登录之后既可以看到管理页面提供的功能。
-1 . 备份配置  	点击备份当前Grafana配置。
-2 . 恢复配置  	一键恢复至最近一次备份，避免数据丢失。
-3 . 一键监控添加  支持当前用户所有在 pandora 创建的 logdb repo，tsdb repo 按需导入，并可在
-				grafana数据源查看和使用。
+
+> 备份配置 ：点击备份当前Grafana配置。
+
+> 恢复配置 ：一键恢复至最近一次备份，避免数据丢失。
+
+> 一键监控添加 ：支持当前用户所有在 pandora 创建的 logdb repo，tsdb repo 按需导入。
 
 ![](https://pandora-kibana.qiniu.com/%E5%A4%87%E4%BB%BD.png)
 
