@@ -37,12 +37,11 @@
 
 管理员账号/密码：该账号密码就是 Grafana 的管理员账号密码
 
-AK/SK：用户的 AK/SK
+AK/SK：用户的 AK/SK , 提供一键读取功能
 
 填写完成之后即可点击【创建应用】
 
-
-![Grafana](https://pandora-kibana.qiniu.com/image2018-5-10_13-48-12.png)
+![Grafana](https://pandora-kibana.qiniu.com/%E9%85%8D%E7%BD%AE.png)
 
 5 . 点击创建应用后，即跳转到我的应用页面，并且显示应用的创建状态。
 
@@ -58,13 +57,17 @@ AK/SK：用户的 AK/SK
 
 ![](https://pandora-kibana.qiniu.com/image2018-5-10_14-44-35.png)
 
-登录之后既可以看到这个用户所有在 pandora 处创建的 logdb repo，tsdb repo 信息，用户可以直接点击【一键添加】按钮添加这个 repo 的 data source。
+登录之后既可以看到管理页面提供的功能。
+1 . 备份配置  	点击备份当前Grafana配置。
+2 . 恢复配置  	一键恢复至最近一次备份，避免数据丢失。
+3 . 一键监控添加  支持当前用户所有在 pandora 创建的 logdb repo，tsdb repo 按需导入，并可在
+				grafana数据源查看和使用。
 
-![](https://pandora-kibana.qiniu.com/image2018-5-10_15-2-34.png)
+![](https://pandora-kibana.qiniu.com/%E5%A4%87%E4%BB%BD.png)
 
 然后我们登录 Grafana 就可以看到这个 Data Source 了。
 
-![](https://pandora-kibana.qiniu.com/image2018-5-10_15-3-30.png)
+![](https://pandora-kibana.qiniu.com/%E6%95%B0%E6%8D%AE%E6%BA%90.png)
 
 ### LogDB数据源监控
 
