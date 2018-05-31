@@ -19,7 +19,7 @@
 
 ### 创建应用
 
-1 . 登录 [c.qiniu.com](c.qiniu.com)，可以在左侧边栏中选择 【应用市场】。
+1 . 登录 [https://c.qiniu.com/](https://c.qiniu.com/)，可以在左侧边栏中选择 【应用市场】。
 
 ![grafana](https://pandora-kibana.qiniu.com/image2018-5-10_13-32-7.png)
 
