@@ -12,6 +12,7 @@
   - [logkit-pro](logkit-pro.md)
   - [工作流](workflow.md)
   - [日志分析服务](logdb.md)
+  - [机器学习](machineLearning.md)
   - [时序数据库](tsdb.md)
   - [报表工作室](report.md)
   - [XSpark](xspark.md)
