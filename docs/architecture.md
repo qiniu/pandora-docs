@@ -1,7 +1,7 @@
-![architecture](http://onzeipdi1.bkt.clouddn.com/architecture.png)
+![architecture](https://pandora-kibana.qiniu.com/architecture1.png)
 
-如上图所示，使用Pandora进行大数据相关操作通常只需要3步：
+如上图所示，使用 Pandora 进行大数据分析通常只需要 3 步：
 
-1. 将数据采集到工作流当中；
-2. 在工作流中进行数据计算或导出；
-3. 在下游产品进行多维度的数据应用、分析；
+1. 通过 logkit 采集各类数据源并发送到智能日志管理平台；
+2. 在智能日志管理平台进行数据检索分析、生成分析报表、监控与告警、异常检测与预测；
+3. 接入第三方可视化工具进行数据监控与告警。

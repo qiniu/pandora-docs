@@ -7,14 +7,13 @@
   - [存储&公网传输](data_save.md)
   
 - 产品详解
-  - [产品架构](architecture.md)
+  - [产品能力图](architecture.md)
   - [logkit](logkit.md)
   - [logkit-pro](logkit-pro.md)
   - [工作流](workflow.md)
   - [日志分析服务](logdb.md)
   - [机器学习](machineLearning.md)
   - [时序数据库](tsdb.md)
-  - [报表工作室](report.md)
   - [XSpark](xspark.md)
   - [Grafana](grafana.md)
 
