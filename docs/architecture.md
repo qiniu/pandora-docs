@@ -1,3 +1,5 @@
+### Pandora 能力全图
+
 ![architecture](https://pandora-kibana.qiniu.com/architecture1.png)
 
 如上图所示，使用 Pandora 进行大数据分析通常只需要 3 步：
