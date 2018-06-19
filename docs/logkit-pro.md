@@ -431,18 +431,18 @@ tailx 模式比较灵活，几乎可以读取所有被通配符匹配上的日�
 
   * 数据查询语句(mysql_sql)：要执行的 sql 语句，可以用 @(var) 使用魔法变量，用 ; 分号隔开，多条语句按顺序执行。多条 sql 输出的内容必须 schema 相同，否则请添加新的收集器分开收集。
     * 魔法变量：目前支持`年`，`月`，`日`，`时`，`分`，`秒`的魔法变量，以当前时间 2017 年 6 月 5 日 6 时 35 分 24 秒为例。
-      * @(YYYY) 年份，就是2017 
-      * @(YY) 年份后两位，就是17。
-      * @(MM): 月份,补齐两位，就是06
-      * @(M): 月份，不补齐,就是6
-      * @(D): 日，不补齐,就是5
-      * @(DD): 日，补齐两位，如05
-      * @(hh): 小时，补齐两位, 如06
-      * @(h): 小时,如6
-      * @(mm): 分钟，补齐两位,35
-      * @(m): 分钟,35
-      * @(ss): 秒，补齐两位,24
-      * @(s): 秒,24
+      * `@(YYYY)` 年份，就是2017 
+      * `@(YY)` 年份后两位，就是17。
+      * `@(MM)` 月份,补齐两位，就是06
+      * `@(M)` 月份，不补齐,就是6
+      * `@(D)` 日，不补齐,就是5
+      * `@(DD)` 日，补齐两位，如05
+      * `@(hh)` 小时，补齐两位, 如06
+      * `@(h)` 小时,如6
+      * `@(mm)` 分钟，补齐两位,35
+      * `@(m)` 分钟,35
+      * `@(ss)` 秒，补齐两位,24
+      * `@(s)` 秒,24
 
   * 启动时立即执行(msql_exec_onstart)：true 表示启动时执行一次，以后再按 cron 处理;false 则表示到cron 预设的时间才执行，默认为 true。
 
@@ -617,15 +617,15 @@ Redis Reader 输出的是 redis 中存储的字符串，具体字符串是什么
 **基础配置信息** 
 
   * socket 监听的地址(socket_service_address): 必填项，监听的 url 地址。协议和形式也可以多样化，包括：
-     * tcp 监听所有 tcp 协议的数据，如 tcp://127.0.0.1:http
-     * tcp4 仅监听 ipv4 地址传输的 tcp 协议数据，如 tcp4://:3110
-     * tcp6 仅监听 ipv6 地址传输的 tcp 协议数据，如 tcp6://:3110 或者 tcp6://[2001:db8::1]:3110
-     * udp 监听所有 udp 协议传输的数据，如 udp://:3110
-     * udp4 仅监听 ipv4 地址传输的 udp 协议数据，如 udp4://:3110
-     * udp6 仅监听 ipv6 地址传输的 udp 协议数据，如 udp6://:3110
-     * unix 监听面向字节流的unix套接字的数据传输协议，如 unix:///tmp/sys.sock
-     * unixgram 监听面向报文的unix套接字的数据传输协议，如 unixgram:///tmp/sys.sock
-     * unixpacket 监听面向数据包的unix套接字的数据传输协议，如 unixpacket:///tmp/sys.sock
+     * tcp 监听所有 tcp 协议的数据，如 `tcp://127.0.0.1:http`
+     * tcp4 仅监听 ipv4 地址传输的 tcp 协议数据，如 `tcp4://:3110`
+     * tcp6 仅监听 ipv6 地址传输的 tcp 协议数据，如 `tcp6://:3110` 或者 `tcp6://[2001:db8::1]:3110`
+     * udp 监听所有 udp 协议传输的数据，如 `udp://:3110`
+     * udp4 仅监听 ipv4 地址传输的 udp 协议数据，如 `udp4://:3110`
+     * udp6 仅监听 ipv6 地址传输的 udp 协议数据，如 `udp6://:3110`
+     * unix 监听面向字节流的unix套接字的数据传输协议，如 `unix:///tmp/sys.sock`
+     * unixgram 监听面向报文的unix套接字的数据传输协议，如 `unixgram:///tmp/sys.sock`
+     * unixpacket 监听面向数据包的unix套接字的数据传输协议，如 `unixpacket:///tmp/sys.sock`
   
 **高级选项**
 
@@ -641,7 +641,7 @@ Redis Reader 输出的是 redis 中存储的字符串，具体字符串是什么
 
 以 http post 请求的方式接受并读取日志的形式。
 
-  * 监听的地址和端口(http_service_address)：监听的地址和端口，格式为：[<ip/host/不填>:port]，如 : 3000 , 监听 3000 端口的 http 请求
+  * 监听的地址和端口(http_service_address)：监听的地址和端口，格式为：`[<ip/host/不填>:port]`，如 `:3000` , 监听 3000 端口的 http 请求
   
   * 监听地址前缀(http_service_path)：监听的请求地址，如 /data
 
@@ -838,33 +838,34 @@ Grok Parser 是一个类似于 Logstash Grok Parser 一样的解析配置方式�
       * string 默认的类型
       * long 整型
       * float 浮点型
-      * date 时间类型，包括以下格式 - 2006/01/02 15:04:05,
-        * 2006-01-02 15:04:05 -0700 MST,
-        * 2006-01-02 15:04:05 -0700,
-        * 2006-01-02 15:04:05,
-        * 2006/01/02 15:04:05 -0700 MST,
-        * 2006/01/02 15:04:05 -0700,
-        * 2006-01-02 -0700 MST,
-        * 2006-01-02 -0700,
-        * 2006-01-02,
-        * 2006/01/02 -0700 MST,
-        * 2006/01/02 -0700,
-        * 2006/01/02,
-        * Mon Jan _2 15:04:05 2006 ANSIC,
-        * Mon Jan _2 15:04:05 MST 2006 UnixDate,
-        * Mon Jan 02 15:04:05 -0700 2006 RubyDate,
-        * 02 Jan 06 15:04 MST RFC822,
-        * 02 Jan 06 15:04 -0700 RFC822Z,
-        * Monday, 02-Jan-06 15:04:05 MST RFC850,
-        * Mon, 02 Jan 2006 15:04:05 MST RFC1123,
-        * Mon, 02 Jan 2006 15:04:05 -0700 RFC1123Z,
-        * 2006-01-02T15:04:05Z07:00 RFC3339,
-        * 2006-01-02T15:04:05.999999999Z07:00 RFC3339Nano,
-        * 3:04PM Kitchen,
-        * Jan _2 15:04:05 Stamp,
-        * Jan _2 15:04:05.000 StampMilli,
-        * Jan _2 15:04:05.000000 StampMicro,
-        * Jan _2 15:04:05.000000000 StampNano,
+      * date 时间类型，包括以下格式 
+        * `2006/01/02 15:04:05`,
+        * `2006-01-02 15:04:05 -0700 MST`,
+        * `2006-01-02 15:04:05 -0700`,
+        * `2006-01-02 15:04:05`,
+        * `2006/01/02 15:04:05 -0700 MST`,
+        * `2006/01/02 15:04:05 -0700`,
+        * `2006-01-02 -0700 MST`,
+        * `2006-01-02 -0700`,
+        * `2006-01-02`,
+        * `2006/01/02 -0700 MST`,
+        * `2006/01/02 -0700`,
+        * `2006/01/02`,
+        * `Mon Jan _2 15:04:05 2006 ANSIC`,
+        * `Mon Jan _2 15:04:05 MST 2006 UnixDate`,
+        * `Mon Jan 02 15:04:05 -0700 2006 RubyDate·,
+        * `02 Jan 06 15:04 MST RFC822`,
+        * `02 Jan 06 15:04 -0700 RFC822Z`,
+        * `Monday, 02-Jan-06 15:04:05 MST RFC850`,
+        * `Mon, 02 Jan 2006 15:04:05 MST RFC1123`,
+        * `Mon, 02 Jan 2006 15:04:05 -0700 RFC1123Z`,
+        * `2006-01-02T15:04:05Z07:00 RFC3339`,
+        * `2006-01-02T15:04:05.999999999Z07:00 RFC3339Nano`,
+        * `3:04PM Kitchen`,
+        * `Jan _2 15:04:05 Stamp`,
+        * `Jan _2 15:04:05.000 StampMilli`,
+        * `Jan _2 15:04:05.000000 StampMicro`,
+        * `Jan _2 15:04:05.000000000 StampNano`,
       * drop 表示扔掉该字段
   * 验证自定义 pattern 的正确性：[http://grokdebug.herokuapp.com](http://grokdebug.herokuapp.com), 这个网站可以 debug 你的 grok pattern。
 
@@ -912,11 +913,11 @@ TEST_LOG_B \[%{TEST_TIMESTAMP:timestamp:date}\] %{NUMBER:myfloat:float} %{WORD:m
 
 * 常用 grok pattern介绍
 
-1. NOTSPACE 匹配所有非空格的内容，这个是性能较高且最为常用的一个 pattern，比如你的日志内容是 abc efg，那么你只要写两个 NOTSPACE 的组合 Pattern 即可，如 %{NOTSPACE:field1} %{NOTSPACE:field2}。
-2. QUOTEDSTRING ， 匹配所有被双引号括起来的字符串内容，跟 NOTSAPCE 类似，会包含双引号一起解析出来，如 "abc" - "efx sx" 这样一串日志，写一个组合 Pattern%{QUOTEDSTRING:field1} - %{QUOTEDSTRING:field2}，field2 就包含数据"efx sx"，这个同样性能较高，好处是不怕有空格等其他特殊字符，缺点是解析的内容包含了双引号本身，如果要转换成 long 等类型需要去掉引号。
-3. DATA 匹配所有字符，这个 pattern 需要结合一些特殊的语境使用，如双引号等特殊字符。举例来说 "abc" - "efx sx"，这样一串日志，可以写一个组合 Pattern "%{DATA:field1}" - "%{DATA:field2}"，这个就起到了 QUOTEDSTRING 的效果，另外数据中不会包含双引号。
-4. HTTPDATE 匹配常见的 HTTP 日期类型，类似 nginx 和 Apache 生产的 timestamp 都可以用这个 Pattern 解析。如[30/Sep/2017:10:50:53 +0800]，就可以写一个组合 Pattern [%{HTTPDATE:ts:date}]，中括号里面包含 HTTPDATE 这个 Pattern，就把时间字符串匹配出来了。
-5. NUMBER 匹配数字类型，包括整数和浮点数，利用这个 Pattern 就可以把 nginx 里面的如响应时间这样的数据解析出来。如"10.10.111.117:8888" [200] "0.002"，就可以写 "%{NOTSPACE:ip}" [%{NUMBER:status:long}] "%{NUMBER:resptime:float}" 来解析出 status 状态码以及 resptime 响应时间。
+1. NOTSPACE 匹配所有非空格的内容，这个是性能较高且最为常用的一个 pattern，比如你的日志内容是 abc efg，那么你只要写两个 NOTSPACE 的组合 Pattern 即可，如 `%{NOTSPACE:field1} %{NOTSPACE:field2}`。
+2. QUOTEDSTRING ， 匹配所有被双引号括起来的字符串内容，跟 NOTSAPCE 类似，会包含双引号一起解析出来，如 "abc" - "efx sx" 这样一串日志，写一个组合 Pattern `%{QUOTEDSTRING:field1} - %{QUOTEDSTRING:field2}`，field2 就包含数据"efx sx"，这个同样性能较高，好处是不怕有空格等其他特殊字符，缺点是解析的内容包含了双引号本身，如果要转换成 long 等类型需要去掉引号。
+3. DATA 匹配所有字符，这个 pattern 需要结合一些特殊的语境使用，如双引号等特殊字符。举例来说 "abc" - "efx sx"，这样一串日志，可以写一个组合 Pattern `"%{DATA:field1}" - "%{DATA:field2}"`，这个就起到了 QUOTEDSTRING 的效果，另外数据中不会包含双引号。
+4. HTTPDATE 匹配常见的 HTTP 日期类型，类似 nginx 和 Apache 生产的 timestamp 都可以用这个 Pattern 解析。如`[30/Sep/2017:10:50:53 +0800]`，就可以写一个组合 Pattern `[%{HTTPDATE:ts:date}]`，中括号里面包含 HTTPDATE 这个 Pattern，就把时间字符串匹配出来了。
+5. NUMBER 匹配数字类型，包括整数和浮点数，利用这个 Pattern 就可以把 nginx 里面的如响应时间这样的数据解析出来。如"10.10.111.117:8888" [200] "0.002"，就可以写 `"%{NOTSPACE:ip}" [%{NUMBER:status:long}] "%{NUMBER:resptime:float}"` 来解析出 status 状态码以及 resptime 响应时间。
 
 基本上，上述这些基础的 grok Pattern 组合起来，就可以解决几乎所有 nginx 的日志解析，但有时候会遇到一些特殊情况，如某个字段可能存在也可能不存在，比如如下两行日志，我们都希望解析。
 
@@ -1438,7 +1439,7 @@ Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWeb
 得到的数据为：
 
 ```
-"ua":               "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true",
+  "ua":               "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true",
 	"UA_Family":        "Amazon Silk",
 	"UA_Major":         "1",
 	"UA_Minor":         "1",
@@ -1531,12 +1532,12 @@ Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.1.0-80) AppleWeb
 { 
    "key1": "value1", 
   "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<note>
+  <note>
   <to>Tove</to>
   <from>Jani</from>
   <heading>Reminder</heading>
   <body>Don't forget me this weekend!</body>
-</note>"
+  </note>"
 }
 ```
 经过 xml 变换后的数据将变为:
@@ -1641,33 +1642,33 @@ pandora_auto_convert_date 可选字段，默认为 true 开启。会自动将用
 
 6. 类型转换，对于解析到的如 string，long 等类型，会根据 Pandora 实际创建的数据源字段类型，进行一定的类型转换，可以进行类型转换的 Pandora 字段包括 string(转换为字符串), long(转换为int64整型), float(转换为float64浮点型), date(转换为rfc3339格式的字符串时间表示)，支持的转换为时间类型的数据包括：
   * 精确到微秒的整型（可以从数字、字符串中提取）
-  * 2006/01/02 15:04:05,
-  * 2006-01-02 15:04:05 -0700 MST,
-  * 2006-01-02 15:04:05 -0700,
-  * 2006-01-02 15:04:05,
-  * 2006/01/02 15:04:05 -0700 MST,
-  * 2006/01/02 15:04:05 -0700,
-  * 2006-01-02 -0700 MST,
-  * 2006-01-02 -0700,
-  * 2006-01-02,
-  * 2006/01/02 -0700 MST,
-  * 2006/01/02 -0700,
-  * 2006/01/02,
-  * Mon Jan _2 15:04:05 2006 ANSIC,
-  * Mon Jan _2 15:04:05 MST 2006 UnixDate,
-  * Mon Jan 02 15:04:05 -0700 2006 RubyDate,
-  * 02 Jan 06 15:04 MST RFC822,
-  * 02 Jan 06 15:04 -0700 RFC822Z,
-  * Monday, 02-Jan-06 15:04:05 MST RFC850,
-  * Mon, 02 Jan 2006 15:04:05 MST RFC1123,
-  * Mon, 02 Jan 2006 15:04:05 -0700 RFC1123Z,
-  * 2006-01-02T15:04:05Z07:00 RFC3339,
-  * 2006-01-02T15:04:05.999999999Z07:00 RFC3339Nano,
-  * 3:04PM Kitchen,
-  * Jan _2 15:04:05 Stamp,
-  * Jan _2 15:04:05.000 StampMilli,
-  * Jan _2 15:04:05.000000 StampMicro,
-  * Jan _2 15:04:05.000000000 StampNano,
+  * `2006/01/02 15:04:05`,
+  * `2006-01-02 15:04:05 -0700 MST`,
+  * `2006-01-02 15:04:05 -0700`,
+  * `2006-01-02 15:04:05`,
+  * `2006/01/02 15:04:05 -0700 MST`,
+  * `2006/01/02 15:04:05 -0700`,
+  * `2006-01-02 -0700 MST`,
+  * `2006-01-02 -0700`,
+  * `2006-01-02`,
+  * `2006/01/02 -0700 MST`,
+  * `2006/01/02 -0700`,
+  * `2006/01/02`,
+  * `Mon Jan _2 15:04:05 2006 ANSIC`,
+  * `Mon Jan _2 15:04:05 MST 2006 UnixDate`,
+  * `Mon Jan 02 15:04:05 -0700 2006 RubyDate·,
+  * `02 Jan 06 15:04 MST RFC822`,
+  * `02 Jan 06 15:04 -0700 RFC822Z`,
+  * `Monday, 02-Jan-06 15:04:05 MST RFC850`,
+  * `Mon, 02 Jan 2006 15:04:05 MST RFC1123`,
+  * `Mon, 02 Jan 2006 15:04:05 -0700 RFC1123Z`,
+  * `2006-01-02T15:04:05Z07:00 RFC3339`,
+  * `2006-01-02T15:04:05.999999999Z07:00 RFC3339Nano`,
+  * `3:04PM Kitchen`,
+  * `Jan _2 15:04:05 Stamp`,
+  * `Jan _2 15:04:05.000 StampMilli`,
+  * `Jan _2 15:04:05.000000 StampMicro`,
+  * `Jan _2 15:04:05.000000000 StampNano`,
 
 #### 发送到本地文件(File Sender)
 
