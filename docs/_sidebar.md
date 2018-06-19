@@ -42,6 +42,7 @@
   - [工作流](workflow_api.md)
   - [日志分析服务](logdb_api.md)
   - [时序数据库](tsdb_api.md)
+  - [logkit管理](logkit_api.md)
 
 - 下载中心
   - [logkit下载](download_logkit.md) 
