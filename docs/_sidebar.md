@@ -18,14 +18,15 @@
   - [Grafana](grafana.md)
 
 - 场景实践
-  - [Nginx日志分析](nginx.md)
-  - [Kubernetes日志收集与处理](k8s.md)
+  - [Nginx 日志分析](nginx.md)
+  - [Kubernetes 日志收集与处理](k8s.md)
   - [关键字报警和日志搜索](keywordalert.md)
   - [apache 日志分析](apachelog.md)
-  - [telegraf服务器监控](monitoring.md)
-  - [nginx metric性能监控](nginxMetric.md)
+  - [telegraf 服务器监控](monitoring.md)
+  - [nginx metric 性能监控](nginxMetric.md)
   - [服务器性能监控](metrics.md)
-  - [php-fpm性能监控](phpfpm.md)
+  - [php-fpm 性能监控](phpfpm.md)
+  - [rsyslog 数据收集实践](rsyslog.md)
 
 - SDK详解
   - [Go](go_sdk.md)
