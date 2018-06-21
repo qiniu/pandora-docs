@@ -427,6 +427,4 @@ Notification用来定义通知方式，比方说`邮件`,`slack`,`钉钉`,`WebHo
 
 如果你是从其它的地方获得Grafana 的模板，导入Json文件创建dashboard的话，经常会出现所有的监控图都无法展示。此时请不要惊慌，可能是因为在创建数据源的时候名字和json中选择的数据源名字并不匹配。或者忘记创建该数据源了。
 
-![错误配置数据源名称](https://pandora-kibana.qiniu.com/grafana-demo/grafana%20%E5%9B%BE%E8%A1%A8-%E6%95%B0%E6%8D%AE%E6%BA%90%E9%85%8D%E7%BD%AE%E9%94%99%E8%AF%AF.png)
-
 此时仔细观察左上角的报错信息，将出错信息中提到的数据源名称设置到数据源配置中就可以了。

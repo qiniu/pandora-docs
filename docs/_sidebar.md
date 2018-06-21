@@ -56,3 +56,4 @@
   - [Pandora v1.5](releases/logdb-2018-04-18.md)
   - [Pandora v1.5.1](releases/logdb-2018-05-18.md)
   - [Pandora v1.5.2](releases/logdb-2018-06-04.md)
+  - [Pandora v1.6](releases/logdb-2018-06-21.md)
