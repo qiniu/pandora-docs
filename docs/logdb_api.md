@@ -438,8 +438,8 @@ Authorization: Pandora <auth>
     "endTime": <timestamp>,
     "searchType": <searchType>,
     "highlight": {
-        "pre_tag": "<pre_tag>",
-        "post_tag": "<post_tag>"
+        "pre_tags": "<pre_tags>",
+        "post_tags": "<post_tags>"
     }
 }
 ```
