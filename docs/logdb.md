@@ -221,7 +221,7 @@ Content-Type: text/plain
 
 ![](https://pandora-kibana.qiniu.com/%E5%AE%9E%E6%97%B6%E6%97%A5%E5%BF%97.png)
 
-同时实时仓库支持前往Pipeline进行数据导出，支持将实时数据导出到日志仓库、云存储、时序数据库等多种下游数据仓库，与Pipeline协同工作，您可以高效地进行实时日志的查询与计算，一鼓作气完成实时日志的整个分析流程。
+同时实时仓库支持前往工作流（pipeline）进行数据导出，支持将实时数据导出到日志仓库、云存储、时序数据库等多种下游数据仓库，与工作流（pipeline）协同工作，您可以高效地进行实时日志的查询与计算，一鼓作气完成实时日志的整个分析流程。
 
 ![](https://pandora-kibana.qiniu.com/%E5%AE%9E%E6%97%B6%E6%97%A5%E5%BF%97-%E5%B7%A5%E4%BD%9C%E6%B5%81.png)
 
