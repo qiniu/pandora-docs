@@ -15,23 +15,6 @@ keyName=valName<TAB>keyName=valName ...
 |:---|:---|:---|:---|
 |RepoName |string|是|消息队列名称|
 |keyName |string|是|字段名称|
-|valName |string|是|对应字段名称的数**请求语法**
-
-```
-POST /v2/repos/<RepoName>/data
-Content-Type: text/plain
-Authorization: Pandora <auth>
-keyName=valName<TAB>keyName=valName ...
-keyName=valName<TAB>keyName=valName ...
-...
-```
-
-**请求内容**
-
-|参数|类型|必填|说明|
-|:---|:---|:---|:---|
-|RepoName |string|是|消息队列名称|
-|keyName |string|是|字段名称|
 |valName |string|是|对应字段名称的数据内容<br/> 注意：如果是`string`类型</br>那么 `\t`、`\r`、`\n` `\` 需要用`\`转义</br>空格`' '` 可以不转义|
 
 > 多个`keyName`和`valName`之间应使用单个 `<TAB>` 分隔。
@@ -48,7 +31,7 @@ keyName=valName<TAB>keyName=valName ...
 **示例**
 
 ```
-curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_Repo/data \
+curl -X POST https://pipeline.qiniu.com/v2/repos/test_Repo/data \
 -H 'Content-Type: text/plain' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '
@@ -81,7 +64,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X Post https://nb-pipeline.qiniuapi.com/v2/stream/token_agent__test2/data \
+curl -X Post https://pipeline.qiniu.com/v2/stream/token_agent__test2/data \
 -H content-type: text/plain \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '
@@ -140,7 +123,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X Post https://pipeline.qiniu.com/v2/stream/token_agent__test2/data \
+curl -X Post https://nb-pipeline.qiniuapi.com/v2/stream/token_agent__test2/data \
 -H content-type: text/plain \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '
@@ -148,6 +131,3 @@ curl -X Post https://pipeline.qiniu.com/v2/stream/token_agent__test2/data \
 200 {} POST 000.00.00.00 kodo_pfdstg 4821 pipe.niuniu.io FgAAA4s9zsV PostData ["STREAMING:350"] text/plain /nb/sche/kodo_pfdstg/file REQ 1500 1538921591 application/json pipeline-apiserver-3179997084-gxvmf STRONGER 2 3505878 2 1530088274411 2018-06-27T08:31:09.960729Z
 '
 ```
-
-
-
