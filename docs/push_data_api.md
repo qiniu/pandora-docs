@@ -31,7 +31,7 @@ keyName=valName<TAB>keyName=valName ...
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/test_Repo/data \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_Repo/data \
 -H 'Content-Type: text/plain' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '
@@ -64,7 +64,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X Post https://pipeline.qiniu.com/v2/stream/token_agent__test2/data \
+curl -X Post https://nb-pipeline.qiniuapi.com/v2/stream/token_agent__test2/data \
 -H content-type: text/plain \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '
