@@ -1,7 +1,7 @@
 ### API接收地址
 
 ```
-https://pipeline.qiniu.com
+https://nb-pipeline.qiniuapi.com
 ```
 
 ### API返回内容
@@ -71,7 +71,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/Test_Repo \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/Test_Repo \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y='  \
 -d '{
@@ -293,7 +293,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/test_repo/transforms/transform_job/to/compute_repo \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_repo/transforms/transform_job/to/compute_repo \
 	 -H 'Content-Type: application/json' \
 	 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 	 -d {
@@ -337,7 +337,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/plugins/ComputeSumDataParser \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/plugins/ComputeSumDataParser \
 -H 'Content-Type: application/java-archive'  \
 -H 'Content-MD5: 900150983cd24fb0d6963f7d28e17f72'  \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
@@ -468,7 +468,7 @@ Authorization: Pandora <auth>
 | Type |string|是|导出方式</br>目前支持`http`、`logdb`、`mongo`、`tsdb`、`kodo`、`report`</br>在这里我们选择`http`|
 |whence|string|否|导出数据的起始位置</br>目前支持`oldest`、`newest`,</br>分别表示从指定仓库的`最早`、`最新`数据开始导出</br>默认值为oldest|
 | Spec |json|是|导出任务的参数主体</br>选择不同的`type`</br>`Spec`也需要填写不同的参数</br>将在下面分开讲解|
-| host |string|是|服务器地址（ip或域名）</br>例如:`https://pipeline.qiniu.com` </br>或 `127.0.0.1:7758`|
+| host |string|是|服务器地址（ip或域名）</br>例如:`https://nb-pipeline.qiniuapi.com` </br>或 `127.0.0.1:7758`|
 | uri |string|是|请求资源路径（具体地址,不包含ip或域名）</br>例如:`/test/repos`|
 | format |string|否|导出方式</br>支持`text`和`json`</br>如果没有填写此项，默认为`text`|
 
@@ -477,7 +477,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/test_Repo/exports/export_job1 \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_Repo/exports/export_job1 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
@@ -537,7 +537,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/test_Repo/exports/export_job4 \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_Repo/exports/export_job4 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
@@ -611,7 +611,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/test_Repo/exports/export_job2 \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/test_Repo/exports/export_job2 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
@@ -696,7 +696,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://pipeline.qiniu.com/v2/repos/repox/exports/export1 \
+curl -X POST https://nb-pipeline.qiniuapi.com/v2/repos/repox/exports/export1 \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y='  \
 -d '{

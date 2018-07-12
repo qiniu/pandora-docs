@@ -1,7 +1,7 @@
 ### API接收地址
 
 ```
-https://tsdb.qiniu.com
+https://nb-tsdb.qiniuapi.com
 ```
 
 ### API返回内容
@@ -54,7 +54,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://tsdb.qiniu.com/v4/repos/test_repo \
+curl -X POST https://nb-tsdb.qiniuapi.com/v4/repos/test_repo \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
@@ -94,7 +94,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://tsdb.qiniu.com/v4/repos/test_repo/series/test_series \
+curl -X POST https://nb-tsdb.qiniuapi.com/v4/repos/test_repo/series/test_series \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 {
@@ -382,7 +382,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://tsdb.qiniu.com/v4/repos/test_repo/meta \
+curl -X POST https://nb-tsdb.qiniuapi.com/v4/repos/test_repo/meta \
 -H 'Content-Type: application/json \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
