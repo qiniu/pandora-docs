@@ -40,7 +40,7 @@
 - REST API详解
   - [API签名](ak.md)
   - [数据推送](push_data_api.md)
-  - [工作流](workflow_api.md)
+  - [工作流](pipeline_api.md)
   - [日志分析服务](logdb_api.md)
   - [时序数据库](tsdb_api.md)
   - [logkit管理](logkit_api.md)

@@ -1,6 +1,6 @@
 ### API 接收地址
 
-`https://logdb.qiniu.com`
+`https://nb-insight.qiniuapi.com`
 
 ### API返回内容
 * 所有参数默认大小写敏感
@@ -281,7 +281,7 @@ Docs父子关联是指在docs之间建立一个`parent-child`关系，用于相�
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/repos/test_repo \
+curl -X POST https://nb-insight.qiniuapi.com/v5/repos/test_repo \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
@@ -353,7 +353,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/repos/test_Repo/search \
+curl -X POST https://nb-insight.qiniuapi.com/v5/repos/test_Repo/search \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"size":1,"query":"content:test","sort":"userName:asc","from":1,"highlight":{"pre_tags":["<tag1>"],"post_tags":["</tag1>"],"fields":{"<高亮的字段>":{}},"require_field_match":false,"fragment_size":100}}'
@@ -399,7 +399,7 @@ Content-Type: text/plain
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/logdbkibana/msearch \
+curl -X POST https://nb-insight.qiniuapi.com/v5/logdbkibana/msearch \
 -H 'Content-Type: text/plain' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"index":["repo0"]}\n{"size":1,"sort":[{"timestamp":{"order":"desc"}}],"query":{"query_string":{"query":"*"}}}'
@@ -462,7 +462,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/test_Repo/s \
+curl -X POST https://nb-insight.qiniuapi.com/v5/test_Repo/s \
 -H 'Content-Type: text/plain' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"query_string":"*","sort":"time","size":10,"startTime":1483203661000,"endTime":1483203663000,"searchType":1}'
@@ -491,7 +491,7 @@ curl -X POST https://logdb.qiniu.com/v5/test_Repo/s \
 }
 ```
 ```
-curl -X POST https://logdb.qiniu.com/v5/test_Repo/s \
+curl -X POST https://nb-insight.qiniuapi.com/v5/test_Repo/s \
 -H 'Content-Type: text/plain' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"query_string":"*","sort":"time","size":10,"startTime":1483203661000,"endTime":1483203663000,"searchType":1}'
@@ -545,7 +545,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/repos/test_Repo/search \
+curl -X POST https://nb-insight.qiniuapi.com/v5/repos/test_Repo/search \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"size":1,"query":"content:test","scroll":"3m","sort":"userName:asc","from":1}'
@@ -569,7 +569,7 @@ curl -X POST https://logdb.qiniu.com/v5/repos/test_Repo/search \
 }
 ```
 ```
-curl -X POST https://logdb.qiniu.com/v5/scroll \
+curl -X POST https://nb-insight.qiniuapi.com/v5/scroll \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"scroll":"3m","scroll_id":"scroll_id1"}'
@@ -593,7 +593,7 @@ curl -X POST https://logdb.qiniu.com/v5/scroll \
 }
 ```
 ```
-curl -X POST https://logdb.qiniu.com/v5/scroll \
+curl -X POST https://lnb-insight.qiniuapi.com/v5/scroll \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{"scroll":"3m","scroll_id":"scroll_id2"}'
@@ -668,7 +668,7 @@ Content-Type: application/json
 **请求报文示例**
 
 ```
-curl -G https://logdb.qiniu.com/v5/repos/search?q="count:>=10 AND <20"&sort="userName:asc"&from=1&size=100 \
+curl -G https://nb-insight.qiniuapi.com/v5/repos/search?q="count:>=10 AND <20"&sort="userName:asc"&from=1&size=100 \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' 
 ```
 
@@ -699,7 +699,7 @@ Highlight是指用户可以在搜索中自定义高亮的标签。
 GET请求示例：
 		
 ```
-	curl -G https://logdb.qiniu.com/v5/repos/search?q="count:>=10 AND <20"&sort="userName:asc"&from=1&size=100&highlight=true \
+	curl -G https://nb-insight.qiniuapi.com/v5/repos/search?q="count:>=10 AND <20"&sort="userName:asc"&from=1&size=100&highlight=true \
 	-H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y='  \
 	-d	'{
 	      "pre_tags":[
@@ -717,7 +717,7 @@ GET请求示例：
 POST请求示例：
 
 ```
-    curl -XPOST https://logdb.qiniu.com/v5/repos/search \
+    curl -XPOST https://nb-insight.qiniuapi.com/v5/repos/search \
       -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y='  \
     -d '{  
       "size":2,
@@ -824,7 +824,7 @@ Authorization: Pandora <auth>
 **示例**
 
 ```
-curl -X POST https://logdb.qiniu.com/v5/repos/test_repo \
+curl -X POST https://nb-insight.qiniuapi.com/v5/repos/test_repo \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Pandora 2J1e7iG13J66GA8vWBzZdF-UR_d1MF-kacOdUUS4:NTi3wH_WlGxYOnXsvgUrO4XMD6Y=' \
 -d '{
