@@ -1,3 +1,5 @@
+- 文档站已迁移到 [七牛开发者中心](https://developer.qiniu.com/insight)
+
 - 快速开始
   - [开通产品](ready.md)
   - [准备数据](prepare_the_data.md)
